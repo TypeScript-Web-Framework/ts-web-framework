@@ -1,0 +1,17 @@
+{
+    "databases" : {
+        "MyFirstInstance" : {
+            "uri" : "mongodb://user:pass@localhost:27017/database",
+            "authSource" : "admin",
+            "auth" : {
+                "authSource" : "admin",
+                "authdb": "admin",
+                "user": "",
+                "pass": "",
+                "password": "",
+                "authMechanism":"SCRAM-SHA-1"
+            },
+            "authMechanism" :"SCRAM-SHA-1"
+        }
+    }
+}

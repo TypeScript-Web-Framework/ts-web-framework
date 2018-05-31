@@ -1,0 +1,27 @@
+import "reflect-metadata";
+import {Metadata} from "../services/Metadata";
+export enum Methods {
+    POST    = "post",
+    GET     = "get",
+    DELETE  = "delete",
+    PUT     = "put",
+    PATCH   = "path",
+    HEAD    = "head",
+    CONNECT = "connect",
+    OPTIONS = "options",
+    TRACE   = "trace"
+}
+export function Method (method : Methods):any;
+export function Method (...args:any[]):any {
+    let  annotate :Function = (target: any, method?: Methods):void => {
+        Metadata.updateAttributes(target.prototype, {
+            method : method
+        });
+        return void 0;
+    };
+    if (args.length > 0) {
+        if (typeof args[0] === "function") return annotate(args[0]);
+        return (target:any) => annotate(target, args[0]);
+    }
+    return void 0;
+}
