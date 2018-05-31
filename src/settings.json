@@ -1,0 +1,36 @@
+{
+    "http": {
+        "defaultPort" : 8080,
+        "ssl" : {
+            "key" : null,
+            "certificate" : null
+        },
+        "defaults" : {
+            "origin" : true,
+            "allowedMethods" : ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+            "allowedHeaders" : ["Content-Type", "Authorization", "X-Auth-Token", "X-Auth-Secret"],
+            "exposedHeaders" : ["Content-Range", "X-Content-Range"],
+            "credentials" : true,
+            "xPoweredBy" : false,
+            "routes" : {
+                "method" : "get"
+            }
+        }
+    },
+    "databases" : {
+        "default" : {
+            "driver" : "mongodb",
+            "uri" : "mongodb://user:pass@localhost:27017/database",
+            "authSource" : "admin",
+            "auth" : {
+                "authSource" : "admin",
+                "authdb": "admin",
+                "user": "",
+                "pass": "",
+                "password": "",
+                "authMechanism":"SCRAM-SHA-1"
+            },
+            "authMechanism" :"SCRAM-SHA-1"
+        }
+    }
+}
