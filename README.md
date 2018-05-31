@@ -3,6 +3,10 @@
 * Nodejs
 * TypeScript
 
+## Platform Support
+* [x] Microsoft Azure AppService
+* [ ] Amazon Web Service EC2
+
 ## Getting Started
 ### Create a new Controller
 #### Annotations
