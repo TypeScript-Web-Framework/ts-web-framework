@@ -4,14 +4,18 @@ import * as bodyParser from 'body-parser';
 import {Router} from "express";
 import {Metadata} from "./services/Metadata";
 import {IApiAttributesAnnotation} from "./interfaces/IApiAttributesAnnotation";
-import {Controller} from "./core/Controller";
 const cors = require('cors');
 import "reflect-metadata";
 import {Settings} from "./core/Settings";
+import {IndexController} from "./controllers/IndexController";
+
+
+
 class Server {
-    public defaultLimit : number = 10;
     public express: express.Application;
-    private controllers : Array<typeof Controller> = [];
+    private controllers : Array<any> = [
+        IndexController
+    ];
     public constructor() {
         this.express = express();
         this.middleware();
@@ -35,8 +39,13 @@ class Server {
     private routes(): void {
         let router : Router = express.Router();
         for (let controller of this.controllers) {
+
+
             let attrs : IApiAttributesAnnotation = Metadata.getAttributes(controller.prototype);
             if (!attrs) continue;
+
+
+            console.log(`${attrs.method.toUpperCase()} ${attrs.uri}`);
             (router as any)[ attrs.method ](attrs.uri, (i:any, o:any) => {
                 try {
                     new (controller.prototype.constructor as FunctionConstructor)(i, o);

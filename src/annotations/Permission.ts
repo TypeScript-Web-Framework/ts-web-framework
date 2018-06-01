@@ -8,7 +8,7 @@ export enum Permissions {
 }
 export function Permission (role : Permissions):any;
 export function Permission (...args:any[]):any {
-    let  annotate :Function = (target: any, role?: Permissions):void => {
+    let  annotate :Function = (target: FunctionConstructor, role?: Permissions):void => {
         Metadata.updateAttributes(target.prototype, {
             role : role
         });
@@ -16,7 +16,7 @@ export function Permission (...args:any[]):any {
     };
     if (args.length > 0) {
         if (typeof args[0] === "function") return annotate(args[0]);
-        return (target:any) => annotate(target, args[0]);
+        return (target:FunctionConstructor) => annotate(target, args[0]);
     }
     return void 0;
 }

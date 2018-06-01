@@ -41,7 +41,9 @@ export class Controller implements IController{
             }
         }
         if (this.hasBadRequest === null) {
+
             try {
+
                 let onEnter : any = this.beforeEnter();
 
                 if (onEnter instanceof Observable) onEnter = (onEnter as Observable<any>).toPromise();
@@ -51,10 +53,12 @@ export class Controller implements IController{
                         .catch( e => this.httpBadRequest(e.toString()))
                 }
                 else this.main();
+
             }
             catch (error) {
-                this.httpBadRequest({error : error.toString()});
+                this.httpBadRequest(error);
             }
+
         }
         else this.httpBadRequest({
             error : this.hasBadRequest
@@ -87,6 +91,7 @@ export class Controller implements IController{
         }
         this.response.end();
     }
+
     public params <T>():{[key:string]:T};
     public params (key:string):Promise<any>;
     public params (key:string, defaultValue : any):Promise<any>;
@@ -100,10 +105,25 @@ export class Controller implements IController{
         }
         return this.request.params || {};
     }
+
+    public header <T>():{[key:string]:string};
+    public header (key:string):Promise<string>;
+    public header (key:string, defaultValue : string):Promise<string>;
+    public header (...args:any[]):any {
+        if (args.length > 0) {
+            return new Promise((resolve, reject) => {
+                if (args[0] in this.request.headers) resolve(this.request.headers[args[0]]);
+                else if (args.length > 1) resolve(args[1]);
+                else reject();
+            });
+        }
+        return this.request.params || {};
+    }
+
+
     public queryString <T>():{ [key:string] : T};
     public queryString <T>(key:string):Promise<T>;
     public queryString <T>(key:string, defaultValue : any):Promise<T>;
-    public queryString ():{ [key:string] : any };
     public queryString (...args:any[]):any {
         if (args.length > 0) {
             return new Promise((resolve, reject) => {
@@ -114,6 +134,7 @@ export class Controller implements IController{
         }
         return this.request.query || {};
     }
+
     public hasQueryString (key : string):boolean {
         return key !== undefined && key !== null && key in this.request.query;
     }
@@ -122,6 +143,9 @@ export class Controller implements IController{
     }
     public hasQuery (key : string):boolean {
         return key !== undefined && key !== null && key in this.request.query;
+    }
+    public hasHeader (key : string):boolean {
+        return key !== undefined && key !== null && key in this.request.headers;
     }
     public httpOk (data?: any, asJson : boolean = true):void {
         this.end(200, data, asJson);

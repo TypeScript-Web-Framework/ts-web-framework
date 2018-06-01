@@ -13,7 +13,7 @@ export enum Methods {
 }
 export function Method (method : Methods):any;
 export function Method (...args:any[]):any {
-    let  annotate :Function = (target: any, method?: Methods):void => {
+    let  annotate :Function = (target: FunctionConstructor, method?: Methods):void => {
         Metadata.updateAttributes(target.prototype, {
             method : method
         });
@@ -21,7 +21,7 @@ export function Method (...args:any[]):any {
     };
     if (args.length > 0) {
         if (typeof args[0] === "function") return annotate(args[0]);
-        return (target:any) => annotate(target, args[0]);
+        return (target:FunctionConstructor) => annotate(target, args[0]);
     }
     return void 0;
 }

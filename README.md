@@ -4,8 +4,60 @@
 * TypeScript
 
 ## Platform Support
-* [x] Microsoft Azure AppService
-* [ ] Amazon Web Service EC2
+* [x] Windows
+    * [x] Windows 7+
+    * [x] Microsoft Azure App Service
+* [x] Linux
+    * [x] Ubuntu Desktop
+    * [x] Ubuntu Server
+    * [x] Fedora
+    * [x] CentOS
+    * [x] RedHat
+    * [ ] Amazon Web Services EC2
+* [x] OSX
+    * [x] El Capitan
+    * [x] Sierra
+    * [x] High Sierra
+
+## Features
+* [x] Controller
+* [ ] Models
+* [ ] Vistas
+* [ ] Services
+* [ ] Security
+    * [ ] CSRF Protection
+    * [ ] DDoS Protection
+    * [ ] Encrypt
+    * [ ] Hashing
+    * [ ] XSS
+    * [ ] Sanitize
+* [ ] Middleware
+* [ ] Sessions
+* [ ] Cookies
+* [ ] Databases
+    * [ ] MongoDB
+    * [ ] MySQL/MariaDB
+    * [ ] PostgreSQL
+    * [ ] Oracle
+    * [ ] SQL Server
+    * [ ] SQLite
+    * [ ] PouchDB
+    * [ ] CouchDB
+    * [ ] Firebase
+    * [ ] DynamoDB
+    * [ ] Cosmos DB
+    * [ ] Cassandra DB
+    * [ ] Redis
+    * [ ] AWS S3
+    * [ ] JSON File System Mechanism
+* [ ] Cache
+    * [ ] Memcached
+    * [ ] Memory Cache
+    * [ ] Http
+* [x] Routes
+* [ ] Lifecycle
+* [ ] Binary CLI
+
 
 ## Getting Started
 ### Controllers
@@ -13,7 +65,7 @@ This framework only support one controller by uri
 
 #### Create a new Controller
 ##### Annotations
-###### @Uri
+###### @Route
 Define URL for access to this controller
 ###### @Method
 Define method to access to this controller
@@ -43,7 +95,7 @@ export class MyOwnController extends Controller {
 #### Middleware Controller
 ##### AuthController
 ````typescript
-@Uri("/my-own-url")
+@Route("/my-own-url")
 @Method(Methods.GET)
 @Permission(Permissions.READ)
 @QueryParam("data", QueryParamsTypes.JSON, false)

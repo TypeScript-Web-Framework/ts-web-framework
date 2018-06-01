@@ -1,8 +1,6 @@
 import * as _ from 'lodash';
-import * as settings from './../settings.json';
-
 export class Settings {
-    static readonly settings : object = settings;
+    static settings : object = JSON.parse(require('fs').readFileSync('./src/settings.json', 'utf8'));
     public static get (path : string, defaultValue?: any):any {
         return this.exists(path) ? _.get(this.settings, path) : defaultValue;
     }

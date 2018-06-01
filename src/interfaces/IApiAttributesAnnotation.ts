@@ -1,8 +1,7 @@
 export interface IApiAttributesAnnotation {
-    role : string,
+    permission : string,
     method : string,
     uri : string
-    clientParam : string,
     queryParams:{
         [ key : string] : {
             type : string,
