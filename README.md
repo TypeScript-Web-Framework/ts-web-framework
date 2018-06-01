@@ -7,7 +7,7 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
 * Nodejs
 * TypeScript
 
-## Testes & Platform Support
+## Tested & Platform Support
 * [x] Windows
     * [x] Windows 7+
     * [x] Microsoft Azure App Service
@@ -59,6 +59,8 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [ ] Memory Cache<sup>Optional</sup>
     * [ ] Http<sup>Optional</sup>
 * [x] Routes
+* [ ] Bucket Support
+    * [ ] AWS S3
 * [ ] Lifecycle
 * [ ] Binary CLI
 
