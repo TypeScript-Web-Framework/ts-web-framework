@@ -30,6 +30,10 @@ export class MyOwnController extends Controller {
 #### Middleware Controller
 ##### AuthController
 ````typescript
+@Uri("/my-own-url")
+@Method(Methods.GET)
+@Permission(Permissions.READ)
+@QueryParam("data", QueryParamsTypes.JSON, false)
 export class AuthController extends Controller {
     public beforeEnter ():Promise<any> {
         return new Promise((resolve, reject) => {
