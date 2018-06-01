@@ -25,35 +25,35 @@
 * [ ] Vistas
 * [ ] Services
 * [ ] Security
-    * [ ] CSRF Protection
-    * [ ] DDoS Protection
-    * [ ] Encrypt
-    * [ ] Hashing
-    * [ ] XSS
-    * [ ] Sanitize
+    * [ ] CSRF Protection<sup>Optional</sup>
+    * [ ] DDoS Protection<sup>Optional</sup>
+    * [ ] Encrypt<sup>Optional</sup>
+    * [ ] Hashing<sup>Optional</sup>
+    * [ ] XSS<sup>Optional</sup>
+    * [ ] Sanitize<sup>Optional</sup>
 * [ ] Middleware
-* [ ] Sessions
-* [ ] Cookies
-* [ ] Databases
-    * [ ] MongoDB
-    * [ ] MySQL/MariaDB
-    * [ ] PostgreSQL
-    * [ ] Oracle
-    * [ ] SQL Server
-    * [ ] SQLite
-    * [ ] PouchDB
-    * [ ] CouchDB
-    * [ ] Firebase
-    * [ ] DynamoDB
-    * [ ] Cosmos DB
-    * [ ] Cassandra DB
-    * [ ] Redis
-    * [ ] AWS S3
-    * [ ] JSON File System Mechanism
+* [ ] Sessions<sup>Optional</sup>
+* [ ] Cookies<sup>Optional</sup>
+* [ ] Databases<sup>Optional</sup>
+    * [ ] MongoDB<sup>Optional</sup>
+    * [ ] MySQL/MariaDB<sup>Optional</sup>
+    * [ ] PostgreSQL<sup>Optional</sup>
+    * [ ] Oracle<sup>Optional</sup>
+    * [ ] SQL Server<sup>Optional</sup>
+    * [ ] SQLite<sup>Optional</sup>
+    * [ ] PouchDB<sup>Optional</sup>
+    * [ ] CouchDB<sup>Optional</sup>
+    * [ ] Firebase<sup>Optional</sup>
+    * [ ] DynamoDB<sup>Optional</sup>
+    * [ ] Cosmos DB<sup>Optional</sup>
+    * [ ] Cassandra DB<sup>Optional</sup>
+    * [ ] Redis<sup>Optional</sup>
+    * [ ] AWS S3<sup>Optional</sup>
+    * [ ] JSON File System Mechanism<sup>Optional</sup>
 * [ ] Cache
-    * [ ] Memcached
-    * [ ] Memory Cache
-    * [ ] Http
+    * [ ] Memcached<sup>Optional</sup>
+    * [ ] Memory Cache<sup>Optional</sup>
+    * [ ] Http<sup>Optional</sup>
 * [x] Routes
 * [ ] Lifecycle
 * [ ] Binary CLI
