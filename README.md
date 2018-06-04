@@ -44,7 +44,7 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
 * [ ] Service
 * [ ] Security
     * [X] CSRF Prevention<sup>Using [CSurf](https://github.com/expressjs/csurf)</sup>
-    * [x] Denial-Of-Service Prevention<sup>Using [DDDoS](https://github.com/ololoepepe/dddos)</sup>
+    * [ ] Denial-Of-Service Prevention<sup>Using [DDDoS](https://github.com/ololoepepe/dddos)</sup>
     * [x] Expect-CT<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
     * [x] Content Security Policy<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
     * [x] DNS Prefetch Control<sup>Using [Helmet](https://helmetjs.github.io/)</sup>

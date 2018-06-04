@@ -32,8 +32,6 @@ class Server {
             credentials : Settings.getBoolean("http.defaults.credentials")
         }));
 
-        // Security
-        // XSS
         if(Settings.exists("http.defaults.security.xss")) {
             this.express.use(helmet.xssFilter(<any>{
                 setOnOldIE: Settings.get("http.defaults.security.xss.setOnOldIE"),
@@ -52,16 +50,6 @@ class Server {
             this.express.disable('x-powered-by');
         }
         if (!Settings.getBoolean("http.defaults.security.csrf")) this.express.use(require("csurf")({ cookie: true }));
-
-        if (Settings.getBoolean("http.defaults.security.ddos")) {
-            let DDDoS = require('dddos');
-            this.express.use(new DDDoS({
-                rules : {
-                    regexp: ".*",
-                    maxWeight: 16
-                }
-            }));
-        }
 
         if (Settings.exists("http.defaults.security.expectCt")) {
             this.express.use(helmet.expectCt({
