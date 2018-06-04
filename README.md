@@ -8,20 +8,19 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
 * TypeScript 2.8+
 
 ## Tested & Platform Support
-* [x] Windows
+* [x] Microsoft
     * [x] Windows 7+
-    * [x] Microsoft Azure App Service
+    * [x] Azure AppService
 * [x] Linux
-    * [x] Ubuntu Desktop
-    * [x] Ubuntu Server
+    * [x] Ubuntu
     * [x] Fedora
     * [x] CentOS
     * [x] RedHat
-    * [ ] Amazon Web Services EC2
+    * [x] Debian
+    * [x] AWS EC2
+    * [x] Arduino
+    * [x] Android Termux
 * [x] OSX
-    * [x] El Capitan
-    * [x] Sierra
-    * [x] High Sierra
 
 ## Features
 * [x] Controller
@@ -40,6 +39,8 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
         * [ ] afterEnter
 * [ ] Model
 * [ ] Vista
+    * [ ] as plain string
+    * [ ] as JSON
 * [ ] Service
 * [ ] Security
     * [X] CSRF Protection<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
@@ -81,6 +82,8 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [ ] Create Vista
     * [ ] Create Service
     * [ ] Enable/Disable feature
+* [ ] MinifyJS
+* [ ] AOT(*Ahead-of-time*)<sup>Using [Enclose](http://enclose.io/)</sup>
 
 
 ## Getting Started
@@ -110,10 +113,13 @@ After execute main, this method will execute.
 
 #### Example code
 ````typescript
+import {Route, Method, Permission, QueryString, Methods, Permissions, QueryStringTypes} from "../annotations/Annotations";
+import {Controller} from "../core/Controller";
+
 @Route("/my-own-url")
 @Method(Methods.GET)
 @Permission(Permissions.READ)
-@QueryParam("data", QueryParamsTypes.JSON, false)
+@QueryString("data", QueryStringTypes.JSON, false)
 export class MyOwnController extends Controller {
     public main () {
         this.httpOk();
@@ -124,6 +130,7 @@ export class MyOwnController extends Controller {
 ##### AuthController
 > 
 ````typescript
+import {Controller} from "../core/Controller";
 export class AuthController extends Controller {
     public beforeEnter ():Promise<any> {
         return new Promise((resolve, reject) => {
@@ -135,6 +142,7 @@ export class AuthController extends Controller {
 ````
 ##### AuthController without Promise
 ````typescript
+import {Controller} from "../core/Controller";
 export class AuthController extends Controller {
     
     public beforeEnter ():void {

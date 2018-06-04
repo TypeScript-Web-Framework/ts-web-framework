@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import {Metadata} from "../services/Metadata";
-export enum QueryParamsTypes {
+export enum QueryStringTypes {
     JSON = "json",
     STRING = "string",
     INTEGER = "integer",
@@ -10,12 +10,12 @@ export enum QueryParamsTypes {
     BOOL = "bool",
     BOOLEAN = "boolean"
 }
-export function QueryParams (name: string):any;
-export function QueryParams (name: string, type: QueryParamsTypes):any;
-export function QueryParams (name: string, type: QueryParamsTypes, required: boolean):any;
-export function QueryParams (name: string, type: QueryParamsTypes, required: boolean, validator : RegExp):any;
-export function QueryParams (...args:any[]):any {
-    let  annotate :Function = (target: FunctionConstructor, name: string, type: QueryParamsTypes = QueryParamsTypes.STRING, required: boolean = false, validator?: RegExp):void => {
+export function QueryString (name: string):any;
+export function QueryString (name: string, type: QueryStringTypes):any;
+export function QueryString (name: string, type: QueryStringTypes, required: boolean):any;
+export function QueryString (name: string, type: QueryStringTypes, required: boolean, validator : RegExp):any;
+export function QueryString (...args:any[]):any {
+    let  annotate :Function = (target: FunctionConstructor, name: string, type: QueryStringTypes = QueryStringTypes.STRING, required: boolean = false, validator?: RegExp):void => {
         let attrs: any = Metadata.getAttributes(target.prototype);
         if (!attrs) attrs = {queryParams : {}};
         attrs.queryParams[name] = {type : type, required : required === true, validator : validator};
