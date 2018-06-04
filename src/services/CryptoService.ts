@@ -66,6 +66,8 @@ export class CryptoService {
         decipher.setAuthTag(tag);
         return decipher.update(text, 'binary', 'utf8') + decipher.final('utf8');
     }
+
+
     public static aes256CbcEncrypt (value: string, key : string):string {
         let encipher = crypto.createCipheriv('aes-256-cbc', key, crypto.randomBytes(16));
         let ciphertext = encipher.update(value, 'binary', 'binary');

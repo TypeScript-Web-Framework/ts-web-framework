@@ -48,7 +48,7 @@ export class Settings {
     }
 
     public static comapareTo (path : string, pathToCompare: any, strictMode : boolean = false):boolean {
-        if(strictMode === true) return Settings.get(path) === Settings.get(pathToCompare)
+        if(strictMode === true) return Settings.get(path) === Settings.get(pathToCompare);
         return Settings.get(path) == Settings.get(pathToCompare);
     }
 

@@ -39,6 +39,8 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
         * [ ] afterEnter
             * [ ] Promise support
     * [x] Easy Response
+        * [x] as Plain Text
+        * [x] as JSON
         * [x] `200` - httpOk
         * [x] `201` - httpCreated
         * [x] `202` - httpAccepted
@@ -72,8 +74,8 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [X] XSS Prevention<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
     * [x] Basic Cryptography<sup>Using [crypto](https://nodejs.org/api/crypto.html#crypto_crypto)</sup>
         * [x] AES-256-CTR Encrypt/Decrypt
-        * [x] AES-256-GCM Encrypt/Decrypt
-        * [x] AES-256-CBC Encrypt/Decrypt
+        * [ ] AES-256-GCM Encrypt/Decrypt
+        * [ ] AES-256-CBC Encrypt/Decrypt
     * [x] Hashing<sup>Using [crypto](https://nodejs.org/api/crypto.html#crypto_crypto)</sup>
         * [x] SHA1
         * [x] SHA256
