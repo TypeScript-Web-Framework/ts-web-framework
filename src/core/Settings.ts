@@ -41,4 +41,15 @@ export class Settings {
     public static exists (path : string):boolean {
         return _.has(this.settings, path);
     }
+
+    public static equalTo (path : string, equalTo : any, strictMode:boolean = false):boolean {
+        if(strictMode === true) return Settings.get(path) === equalTo;
+        return Settings.get(path) == equalTo;
+    }
+
+    public static comapareTo (path : string, pathToCompare: any, strictMode : boolean = false):boolean {
+        if(strictMode === true) return Settings.get(path) === Settings.get(pathToCompare)
+        return Settings.get(path) == Settings.get(pathToCompare);
+    }
+
 }

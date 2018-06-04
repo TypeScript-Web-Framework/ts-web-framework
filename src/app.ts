@@ -31,8 +31,7 @@ class Server {
             exposedHeaders: Settings.getArray("http.defaults.exposedHeaders"),
             credentials : Settings.getBoolean("http.defaults.credentials")
         }));
-
-        if(Settings.exists("http.defaults.security.xss")) {
+        if (Settings.exists("http.defaults.security.xss")) {
             this.express.use(helmet.xssFilter(<any>{
                 setOnOldIE: Settings.get("http.defaults.security.xss.setOnOldIE"),
                 reportUri: Settings.get("http.defaults.security.xss.reportUri")
@@ -50,7 +49,6 @@ class Server {
             this.express.disable('x-powered-by');
         }
         if (!Settings.getBoolean("http.defaults.security.csrf")) this.express.use(require("csurf")({ cookie: true }));
-
         if (Settings.exists("http.defaults.security.expectCt")) {
             this.express.use(helmet.expectCt({
                 enforce: Settings.getBoolean("http.defaults.security.expectCt.enforce"),
@@ -58,20 +56,17 @@ class Server {
                 reportUri: Settings.get("http.defaults.security.expectCt.maxAge")
             }))
         }
-
         if (Settings.exists("http.defaults.security.dnsPrefetchControl")) {
             this.express.use(helmet.dnsPrefetchControl({
                 allow: Settings.getBoolean("http.defaults.security.dnsPrefetchControl.allow")
             }))
         }
-
         if (Settings.exists("http.defaults.security.frameGuard")) {
             this.express.use(helmet.frameguard({
                 action: Settings.get("http.defaults.security.frameGuard.action"),
                 domain: Settings.get("http.defaults.security.frameGuard.domain")
             }))
         }
-
         if (Settings.exists("http.defaults.security.HTTPPublicKeyPinning")) {
             this.express.use(helmet.hpkp({
                 maxAge: Settings.get("http.defaults.security.HTTPPublicKeyPinning.maxAge"),
@@ -81,14 +76,12 @@ class Server {
                 reportOnly: Settings.get("http.defaults.security.HTTPPublicKeyPinning.reportOnly")
             }))
         }
-
         if (Settings.exists("http.defaults.security.StrictTransportSecurity")) {
             this.express.use(helmet.hsts({
                 maxAge: Settings.get("http.defaults.security.StrictTransportSecurity.maxAge"),
                 preload: Settings.get("http.defaults.security.StrictTransportSecurity.preload"),
             }))
         }
-
         if (Settings.exists("http.defaults.security.ieNoOpen")) this.express.use(helmet.ieNoOpen());
         if (Settings.exists("http.defaults.security.noCache")) this.express.use(helmet.noCache());
         if (Settings.exists("http.defaults.security.noSniff")) this.express.use(helmet.noSniff());

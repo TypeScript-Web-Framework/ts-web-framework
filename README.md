@@ -57,35 +57,32 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [x] No Sniff<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
     * [x] Referrer-Policy<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
     * [X] XSS Prevention<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [ ] Encrypt<sup>Optional</sup>
-    * [ ] Hashing<sup>Optional</sup>
-    * [ ] Sanitize<sup>Optional</sup>
+    * [ ] Cryptography<sup>Using [crypto](https://nodejs.org/api/crypto.html#crypto_crypto)</sup>
+    * [ ] Hashing<sup>Using [crypto](https://nodejs.org/api/crypto.html#crypto_crypto)</sup>
 * [ ] Custom Global Middleware
 * [ ] Sessions<sup>Optional</sup>
 * [ ] Cookies<sup>Optional</sup>
 * [ ] Databases Support<sup>Optional</sup>
-    * [ ] MongoDB<sup>Optional</sup>
-    * [ ] MySQL/MariaDB<sup>Optional</sup>
-    * [ ] PostgreSQL<sup>Optional</sup>
-    * [ ] Oracle<sup>Optional</sup>
-    * [ ] SQL Server<sup>Optional</sup>
-    * [ ] SQLite<sup>Optional</sup>
-    * [ ] PouchDB<sup>Optional</sup>
-    * [ ] CouchDB<sup>Optional</sup>
-    * [ ] Firebase<sup>Optional</sup>
-    * [ ] DynamoDB<sup>Optional</sup>
-    * [ ] Cosmos DB<sup>Optional</sup>
-    * [ ] Cassandra DB<sup>Optional</sup>
-    * [ ] Redis<sup>Optional</sup>
-    * [ ] AWS S3<sup>Optional</sup>
-    * [ ] JSON File System Mechanism<sup>Optional</sup>
-* [ ] Cache Support
-    * [ ] Memcached<sup>Optional</sup>
-    * [ ] Memory Cache<sup>Optional</sup>
-    * [ ] Http<sup>Optional</sup>
+    * [ ] MongoDB<sup>Using [Mongoose](http://mongoosejs.com/)</sup>
+    * [ ] MySQL/MariaDB<sup>Using [mysql](https://github.com/mysqljs/mysql)</sup>
+    * [ ] PostgreSQL<sup>Using [node-postgres](https://node-postgres.com/)</sup>
+    * [ ] Oracle<sup>Using [node-oracledb](https://github.com/oracle/node-oracledb)</sup>
+    * [ ] SQL Server<sup>Using [node-mssql](https://github.com/tediousjs/node-mssql)</sup>
+    * [ ] SQLite3<sup>Using [node-sqlite3](https://github.com/mapbox/node-sqlite3)</sup>
+    * [ ] PouchDB<sup>Using [pouchdb](https://github.com/pouchdb/pouchdb)</sup>
+    * [ ] CouchDB<sup>Using [node-couchdb](https://github.com/1999/node-couchdb)</sup>
+    * [ ] DynamoDB<sup>Using [dynamodb](https://github.com/baseprime/dynamodb)</sup>
+    * [ ] Cosmos DB<sup>Using [azure-documentdb-node](https://github.com/Azure/azure-documentdb-node)</sup>
+    * [ ] Cassandra DB<sup>Using [cassandra-driver](https://github.com/datastax/nodejs-driver)</sup>
+    * [ ] Redis<sup>Using [redis](https://github.com/NodeRedis/node_redis)</sup>
+* [ ] Cache
+    * [ ] Memcached<sup>[Using Memcached](https://github.com/3rd-Eden/memcached)</sup>
+    * [ ] Memory Cache<sup>Using [node-cache](https://github.com/ptarjan/node-cache)</sup>
 * [x] Routes
-* [ ] Bucket Support
-    * [ ] AWS S3
+* [ ] Storage
+    * [ ] Amazin Web Service S3
+    * [ ] Microsoft Azure Blob Storage
+    * [ ] Google Cloud Storage
 * [ ] Binary CLI
     * [ ] Create Project
     * [ ] Create Controller
@@ -94,7 +91,7 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [ ] Create Service
     * [ ] Enable/Disable feature
 * [ ] MinifyJS
-* [ ] AOT(*Ahead-of-time*)<sup>Using [Enclose](http://enclose.io/)</sup>
+* [x] Support to AOT(*Ahead-of-time*)<sup>Using [node-packer](https://github.com/pmq20/node-packer)</sup>
 
 
 ## Getting Started
