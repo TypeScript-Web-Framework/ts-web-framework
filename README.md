@@ -57,9 +57,21 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [x] No Sniff<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
     * [x] Referrer-Policy<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
     * [X] XSS Prevention<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [ ] Cryptography<sup>Using [crypto](https://nodejs.org/api/crypto.html#crypto_crypto)</sup>
+    * [x] Basic Cryptography<sup>Using [crypto](https://nodejs.org/api/crypto.html#crypto_crypto)</sup>
+        * [x] AES-256-CTR Encrypt/Decrypt
+        * [x] AES-256-GCM Encrypt/Decrypt
+        * [x] AES-256-CBC Encrypt/Decrypt
     * [ ] Hashing<sup>Using [crypto](https://nodejs.org/api/crypto.html#crypto_crypto)</sup>
-* [ ] Custom Global Middleware
+        * [x] SHA1
+        * [x] SHA256
+        * [x] SHA512
+        * [x] md5
+        * [x] HMAC-SHA1
+        * [x] HMAC-SHA256
+        * [x] HMAC-SHA512
+        * [x] Checksum-md5
+        * [x] Checksum-sha1
+* [ ] Custom Middleware
 * [ ] Sessions<sup>Optional</sup>
 * [ ] Cookies<sup>Optional</sup>
 * [ ] Databases Support<sup>Optional</sup>
