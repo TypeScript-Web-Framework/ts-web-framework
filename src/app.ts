@@ -8,6 +8,7 @@ const cors = require('cors');
 import "reflect-metadata";
 import {Settings} from "./core/Settings";
 import {IndexController} from "./controllers/IndexController";
+import * as helmet from "helmet";
 
 
 
@@ -29,12 +30,31 @@ class Server {
             exposedHeaders: Settings.getArray("http.defaults.exposedHeaders"),
             credentials : Settings.getBoolean("http.defaults.credentials")
         }));
+
+        // Security
+        // XSS
+        if(Settings.getBoolean("http.defaults.security.xss")) {
+            this.express.use(helmet.xssFilter(<any>{
+                setOnOldIE: true,
+                reportUri: "/report-xss-violation"
+            }));
+            this.express.use(helmet.contentSecurityPolicy({
+                directives: {
+                    defaultSrc: ["'self'"],
+                    styleSrc: ["'self'", '*']
+                }
+            }))
+        }
+        if (!Settings.getBoolean("http.defaults.security.xPoweredBy")) {
+            this.express.disable('x-powered-by');
+        }
+
+
+
         this.express.use(logger('dev'));
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: false }));
-        if (Settings.exists("http.defaults.xPoweredBy")) {
-            if (Settings.getBoolean("http.defaults.xPoweredBy") === false) this.express.disable('x-powered-by');
-        }
+
     }
     private routes(): void {
         let router : Router = express.Router();

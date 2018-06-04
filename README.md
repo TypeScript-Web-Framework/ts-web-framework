@@ -4,8 +4,8 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
 
 
 ## Requeriments
-* Nodejs
-* TypeScript
+* Nodejs 8+
+* TypeScript 2.8+
 
 ## Tested & Platform Support
 * [x] Windows
@@ -25,15 +25,15 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
 
 ## Features
 * [x] Controller
-* [ ] Models
-* [ ] Vistas
-* [ ] Services
+* [ ] Model
+* [ ] Vista
+* [ ] Service
 * [ ] Security
-    * [ ] CSRF Protection<sup>Optional</sup>
+    * [X] CSRF Protection<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
     * [ ] DDoS Protection<sup>Optional</sup>
     * [ ] Encrypt<sup>Optional</sup>
     * [ ] Hashing<sup>Optional</sup>
-    * [ ] XSS<sup>Optional</sup>
+    * [X] XSS<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
     * [ ] Sanitize<sup>Optional</sup>
 * [ ] Middleware
 * [ ] Sessions<sup>Optional</sup>
@@ -92,6 +92,10 @@ After execute main, this method will execute.
 
 #### Example code
 ````typescript
+@Route("/my-own-url")
+@Method(Methods.GET)
+@Permission(Permissions.READ)
+@QueryParam("data", QueryParamsTypes.JSON, false)
 export class MyOwnController extends Controller {
     public main () {
         this.httpOk();
@@ -100,11 +104,8 @@ export class MyOwnController extends Controller {
 ````
 #### Middleware Controller
 ##### AuthController
+> 
 ````typescript
-@Route("/my-own-url")
-@Method(Methods.GET)
-@Permission(Permissions.READ)
-@QueryParam("data", QueryParamsTypes.JSON, false)
 export class AuthController extends Controller {
     public beforeEnter ():Promise<any> {
         return new Promise((resolve, reject) => {

@@ -13,7 +13,7 @@ export class Settings {
         return typeof value === "object" ? value : null
     }
     public static getBoolean (path:string, defaultValue?: boolean):boolean {
-        let value :any = this.get(path, defaultValue);
+        let value :any = this.get(path, typeof defaultValue === "undefined" ? false : defaultValue);
         return value === true || value == false || false;
     }
     public static getString (path:string, defaultValue?: string):string {

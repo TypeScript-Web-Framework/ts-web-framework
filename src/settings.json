@@ -11,10 +11,14 @@
             "allowedHeaders" : ["Content-Type", "Authorization", "X-Auth-Token", "X-Auth-Secret"],
             "exposedHeaders" : ["Content-Range", "X-Content-Range"],
             "credentials" : true,
-            "xPoweredBy" : false,
             "routes" : {
                 "method" : "get"
             }
+        },
+        "security": {
+            "xss" : true,
+            "csrf" : true,
+            "xPoweredBy" : false
         }
     },
     "databases" : {
