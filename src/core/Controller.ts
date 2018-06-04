@@ -154,7 +154,7 @@ export class Controller implements IController{
         this.end(201, data, asJson);
     }
     public httpAccepted (data : any, asJson : boolean = true):void {
-        this.end(201, data, asJson);
+        this.end(202, data, asJson);
     }
     public httpNotFound (data?:any, asJson : boolean = true):void {
         this.end(404, data, asJson);
@@ -174,7 +174,7 @@ export class Controller implements IController{
     }
     public httpRedirect(uri: string, permanently?: boolean):void {
         if (permanently === true) this.response.redirect(301, uri);
-        else this.response.redirect(uri);
+        else this.response.redirect(uri, 307);
         this.response.end();
     }
 }

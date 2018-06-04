@@ -33,14 +33,27 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
         * [x] Custom AuthController
     * [ ] Lifecycle
         * [x] beforeEnter
-            * [x] as Promise
+            * [x] Promise support
         * [x] main
-            * [x] as Promise
+            * [x] Promise support
         * [ ] afterEnter
+            * [ ] Promise support
+    * [x] Easy Response
+        * [x] `200` - httpOk
+        * [x] `201` - httpCreated
+        * [x] `202` - httpAccepted
+        * [x] `301` - httpRedirect
+        * [x] `307` - httpRedirect
+        * [x] `400` - httpBadRequest
+        * [x] `401` - httpUnauthorized
+        * [x] `403` - httpForbidden
+        * [x] `404` - httpNotFound
+        * [x] `405` - httpMethodNotAllowed
 * [ ] Model
 * [ ] Vista
     * [ ] as plain string
     * [ ] as JSON
+    * [ ] as XML
 * [ ] Service
 * [ ] Security
     * [X] CSRF Prevention<sup>Using [CSurf](https://github.com/expressjs/csurf)</sup>
@@ -61,16 +74,16 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
         * [x] AES-256-CTR Encrypt/Decrypt
         * [x] AES-256-GCM Encrypt/Decrypt
         * [x] AES-256-CBC Encrypt/Decrypt
-    * [ ] Hashing<sup>Using [crypto](https://nodejs.org/api/crypto.html#crypto_crypto)</sup>
+    * [x] Hashing<sup>Using [crypto](https://nodejs.org/api/crypto.html#crypto_crypto)</sup>
         * [x] SHA1
         * [x] SHA256
         * [x] SHA512
-        * [x] md5
+        * [x] MD5
         * [x] HMAC-SHA1
         * [x] HMAC-SHA256
         * [x] HMAC-SHA512
-        * [x] Checksum-md5
-        * [x] Checksum-sha1
+        * [x] Checksum-MD5
+        * [x] Checksum-SHA1
 * [ ] Custom Middleware
 * [ ] Sessions<sup>Optional</sup>
 * [ ] Cookies<sup>Optional</sup>
@@ -92,7 +105,7 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [ ] Memory Cache<sup>Using [node-cache](https://github.com/ptarjan/node-cache)</sup>
 * [x] Routes
 * [ ] Storage
-    * [ ] Amazin Web Service S3
+    * [ ] Amazon Web Service S3
     * [ ] Microsoft Azure Blob Storage
     * [ ] Google Cloud Storage
 * [ ] Binary CLI
@@ -103,7 +116,7 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [ ] Create Service
     * [ ] Enable/Disable feature
 * [ ] MinifyJS
-* [x] Support to AOT(*Ahead-of-time*)<sup>Using [node-packer](https://github.com/pmq20/node-packer)</sup>
+* [ ] Support to AOT(*Ahead-of-time*)<sup>Using [node-packer](https://github.com/pmq20/node-packer)</sup>
 
 
 ## Getting Started
