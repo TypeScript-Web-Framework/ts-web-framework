@@ -25,6 +25,19 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
 
 ## Features
 * [x] Controller
+    * [x] Annotations
+        * [x] @Uri
+        * [x] @Method
+        * [x] @Permission
+        * [x] @QueryString
+    * [x] Custom Middleware Controller
+        * [x] Custom AuthController
+    * [ ] Lifecycle
+        * [x] beforeEnter
+            * [x] as Promise
+        * [x] main
+            * [x] as Promise
+        * [ ] afterEnter
 * [ ] Model
 * [ ] Vista
 * [ ] Service
@@ -35,10 +48,10 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [ ] Hashing<sup>Optional</sup>
     * [X] XSS<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
     * [ ] Sanitize<sup>Optional</sup>
-* [ ] Middleware
+* [ ] Custom Global Middleware
 * [ ] Sessions<sup>Optional</sup>
 * [ ] Cookies<sup>Optional</sup>
-* [ ] Databases<sup>Optional</sup>
+* [ ] Databases Support<sup>Optional</sup>
     * [ ] MongoDB<sup>Optional</sup>
     * [ ] MySQL/MariaDB<sup>Optional</sup>
     * [ ] PostgreSQL<sup>Optional</sup>
@@ -54,15 +67,20 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [ ] Redis<sup>Optional</sup>
     * [ ] AWS S3<sup>Optional</sup>
     * [ ] JSON File System Mechanism<sup>Optional</sup>
-* [ ] Cache
+* [ ] Cache Support
     * [ ] Memcached<sup>Optional</sup>
     * [ ] Memory Cache<sup>Optional</sup>
     * [ ] Http<sup>Optional</sup>
 * [x] Routes
 * [ ] Bucket Support
     * [ ] AWS S3
-* [ ] Lifecycle
 * [ ] Binary CLI
+    * [ ] Create Project
+    * [ ] Create Controller
+    * [ ] Create Model
+    * [ ] Create Vista
+    * [ ] Create Service
+    * [ ] Enable/Disable feature
 
 
 ## Getting Started
