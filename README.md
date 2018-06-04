@@ -43,11 +43,22 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [ ] as JSON
 * [ ] Service
 * [ ] Security
-    * [X] CSRF Protection<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [ ] DDoS Protection<sup>Optional</sup>
+    * [X] CSRF Prevention<sup>Using [CSurf](https://github.com/expressjs/csurf)</sup>
+    * [x] Denial-Of-Service Prevention<sup>Using [DDDoS](https://github.com/ololoepepe/dddos)</sup>
+    * [x] Expect-CT<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
+    * [x] Content Security Policy<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
+    * [x] DNS Prefetch Control<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
+    * [x] X-Frame-Options<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
+    * [x] Hiden Powerd By<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
+    * [x] HTTP Public Key Pinning<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
+    * [x] HTTP Strict Transport Security<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
+    * [x] X-Download-Options for IE8+<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
+    * [x] No Cache<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
+    * [x] No Sniff<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
+    * [x] Referrer-Policy<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
+    * [X] XSS Prevention<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
     * [ ] Encrypt<sup>Optional</sup>
     * [ ] Hashing<sup>Optional</sup>
-    * [X] XSS<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
     * [ ] Sanitize<sup>Optional</sup>
 * [ ] Custom Global Middleware
 * [ ] Sessions<sup>Optional</sup>

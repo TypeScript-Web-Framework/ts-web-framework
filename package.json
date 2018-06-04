@@ -13,6 +13,7 @@
     "author": "Olaf Erlandsen",
     "license": "ISC",
     "dependencies": {
+        "@types/csurf": "^1.9.35",
         "@types/helmet": "0.0.37",
         "@types/lodash": "^4.14.108",
         "@types/mongodb": "^3.0.15",
@@ -20,6 +21,8 @@
         "body-parser": "^1.15.2",
         "cookie-parser": "^1.4.3",
         "cors": "^2.8.4",
+        "csurf": "^1.9.0",
+        "dddos": "^0.1.2",
         "debug": "^2.2.0",
         "express": "^4.14.0",
         "helmet": "^3.12.1",

@@ -12,6 +12,7 @@ import * as helmet from "helmet";
 
 
 
+
 class Server {
     public express: express.Application;
     private controllers : Array<any> = [
@@ -33,22 +34,81 @@ class Server {
 
         // Security
         // XSS
-        if(Settings.getBoolean("http.defaults.security.xss")) {
+        if(Settings.exists("http.defaults.security.xss")) {
             this.express.use(helmet.xssFilter(<any>{
-                setOnOldIE: true,
-                reportUri: "/report-xss-violation"
+                setOnOldIE: Settings.get("http.defaults.security.xss.setOnOldIE"),
+                reportUri: Settings.get("http.defaults.security.xss.reportUri")
             }));
+        }
+        if (Settings.exists("http.defaults.security.contentSecurityPolicy")) {
             this.express.use(helmet.contentSecurityPolicy({
                 directives: {
-                    defaultSrc: ["'self'"],
-                    styleSrc: ["'self'", '*']
+                    defaultSrc: Settings.get("http.defaults.security.contentSecurityPolicy.defaultSrc"),
+                    styleSrc:  Settings.get("http.defaults.security.contentSecurityPolicy.styleSrc")
                 }
             }))
         }
         if (!Settings.getBoolean("http.defaults.security.xPoweredBy")) {
             this.express.disable('x-powered-by');
         }
+        if (!Settings.getBoolean("http.defaults.security.csrf")) this.express.use(require("csurf")({ cookie: true }));
 
+        if (Settings.getBoolean("http.defaults.security.ddos")) {
+            let DDDoS = require('dddos');
+            this.express.use(new DDDoS({
+                rules : {
+                    regexp: ".*",
+                    maxWeight: 16
+                }
+            }));
+        }
+
+        if (Settings.exists("http.defaults.security.expectCt")) {
+            this.express.use(helmet.expectCt({
+                enforce: Settings.getBoolean("http.defaults.security.expectCt.enforce"),
+                maxAge: Settings.get("http.defaults.security.expectCt.maxAge", 120),
+                reportUri: Settings.get("http.defaults.security.expectCt.maxAge")
+            }))
+        }
+
+        if (Settings.exists("http.defaults.security.dnsPrefetchControl")) {
+            this.express.use(helmet.dnsPrefetchControl({
+                allow: Settings.getBoolean("http.defaults.security.dnsPrefetchControl.allow")
+            }))
+        }
+
+        if (Settings.exists("http.defaults.security.frameGuard")) {
+            this.express.use(helmet.frameguard({
+                action: Settings.get("http.defaults.security.frameGuard.action"),
+                domain: Settings.get("http.defaults.security.frameGuard.domain")
+            }))
+        }
+
+        if (Settings.exists("http.defaults.security.HTTPPublicKeyPinning")) {
+            this.express.use(helmet.hpkp({
+                maxAge: Settings.get("http.defaults.security.HTTPPublicKeyPinning.maxAge"),
+                sha256s: Settings.get("http.defaults.security.HTTPPublicKeyPinning.sha256s"),
+                includeSubdomains: Settings.get("http.defaults.security.HTTPPublicKeyPinning.includeSubdomains"),
+                reportUri: Settings.get("http.defaults.security.HTTPPublicKeyPinning.reportUri"),
+                reportOnly: Settings.get("http.defaults.security.HTTPPublicKeyPinning.reportOnly")
+            }))
+        }
+
+        if (Settings.exists("http.defaults.security.StrictTransportSecurity")) {
+            this.express.use(helmet.hsts({
+                maxAge: Settings.get("http.defaults.security.StrictTransportSecurity.maxAge"),
+                preload: Settings.get("http.defaults.security.StrictTransportSecurity.preload"),
+            }))
+        }
+
+        if (Settings.exists("http.defaults.security.ieNoOpen")) this.express.use(helmet.ieNoOpen());
+        if (Settings.exists("http.defaults.security.noCache")) this.express.use(helmet.noCache());
+        if (Settings.exists("http.defaults.security.noSniff")) this.express.use(helmet.noSniff());
+        if (Settings.exists("http.defaults.security.referrerPolicy")) {
+            this.express.use(helmet.referrerPolicy({
+                policy : Settings.get("http.defaults.security.referrerPolicy.policy")
+            }));
+        }
 
 
         this.express.use(logger('dev'));
