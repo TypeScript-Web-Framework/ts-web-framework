@@ -37,34 +37,21 @@ export class Metadata {
     }
 
     static registerController (controller : any): void {
-        console.log("#A:", controller.constructor.name);
         Reflect.defineMetadata(Metadata.METADATA_KEYS.CONTROLLER, null, Route.prototype);
-
         let attrs : any = Reflect.getMetadata(Metadata.METADATA_KEYS.CONTROLLER_LIST, Route.prototype) || [];
-
         if (!attrs) attrs = [];
-        console.log("#B:", controller.constructor.name);
 
         if (attrs.indexOf(controller.constructor.name) === -1) {
-            console.log("#C:", controller.constructor.name);
-
             attrs.push(controller.constructor.name);
             Reflect.defineMetadata(
                 Metadata.METADATA_KEYS.CONTROLLER_LIST,
                 attrs,
                 Route.prototype
             );
-            console.log("#D:", controller.constructor.name);
-
         }
-
-        console.log("#E:", controller.constructor.name);
-
     }
 
     static getControllers (): Array<string|FunctionConstructor|FunctionConstructor> {
-        console.log("#F:", Route.prototype.constructor.name);
-
         return Reflect.getMetadata(Metadata.METADATA_KEYS.CONTROLLER_LIST, Route.prototype) || [];
     }
 

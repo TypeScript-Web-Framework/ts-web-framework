@@ -1,6 +1,7 @@
 import {Metadata} from "../services/Metadata";
 import {Request, Response} from "express-serve-static-core";
 import { Observable } from 'rxjs';
+import {IMainController} from "../interfaces/IMainController";
 export interface IController {
     main: () => void;
     params : () => { [key : string ] : string };
@@ -16,7 +17,7 @@ export interface IController {
     httpMethodNotAllowed : (data?:any, asJson?:boolean) => void;
     httpRedirect : (uri:string, permanently?:boolean) => void;
 }
-export class Controller implements IController{
+export class Controller implements IController, IMainController{
     private hasBadRequest : any = null;
     public constructor(public request: Request, public response : Response) {
         let attrs = Metadata.getAttributes(this.constructor.prototype);
@@ -41,31 +42,35 @@ export class Controller implements IController{
             }
         }
         if (this.hasBadRequest === null) {
+            if ('beforeEnter' in this) {
+                try {
 
-            try {
+                    let beforeEnter : any = (<any>this).beforeEnter();
 
-                let onEnter : any = this.beforeEnter();
-
-                if (onEnter instanceof Observable) onEnter = (onEnter as Observable<any>).toPromise();
-                if (onEnter instanceof Promise) {
-                    onEnter
-                        .then(() => this.main())
-                        .catch( e => this.httpBadRequest(e.toString()))
+                    if (beforeEnter instanceof Observable) beforeEnter = (beforeEnter as Observable<any>).toPromise();
+                    if (beforeEnter instanceof Promise) {
+                        beforeEnter
+                            .then(() => this.main())
+                            .catch( e => this.httpBadRequest(e.toString()))
+                    }
+                    else (<any>this).main();
                 }
-                else this.main();
+                catch (error) {
+                    (<any>this).httpBadRequest(error);
+                }
+            }
+            else {
+                this.main();
+            }
 
-            }
-            catch (error) {
-                this.httpBadRequest(error);
-            }
 
         }
         else this.httpBadRequest({
             error : this.hasBadRequest
         });
     }
-    public beforeEnter ():Promise<void>|void {}
-    public afterEnter ():Promise<void>|void {}
+    //public beforeEnter ():Promise<void>|void {}
+    //public afterEnter ():Promise<void>|void {}
     public main ():Promise<void>|void {
         if (this.hasBadRequest !== null) return this.httpBadRequest({error : this.hasBadRequest});
         return this.httpOk();
@@ -160,7 +165,6 @@ export class Controller implements IController{
         this.end(404, data, asJson);
     }
     public httpBadRequest (data?:any, asJson : boolean = true):void {
-        console.log("BAD REQUEST", data);
         this.end(400, data, asJson);
     }
     public httpUnauthorized (data?:any, asJson : boolean = true):void {

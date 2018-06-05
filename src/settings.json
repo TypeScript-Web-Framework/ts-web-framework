@@ -6,19 +6,34 @@
             "certificate" : null
         },
         "defaults" : {
-            "origin" : true,
-            "allowedMethods" : ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-            "allowedHeaders" : ["Content-Type", "Authorization", "X-Auth-Token", "X-Auth-Secret"],
-            "exposedHeaders" : ["Content-Range", "X-Content-Range"],
-            "credentials" : true,
             "routes" : {
                 "method" : "get"
             }
         },
+        "cors" : {
+            "origin" : true,
+            "allowedMethods" : ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+            "allowedHeaders" : ["Content-Type", "Authorization", "X-Auth-Token", "X-Auth-Secret"],
+            "exposedHeaders" : ["Content-Range", "X-Content-Range"],
+            "credentials" : true
+        },
         "security": {
             "xss" : true,
             "csrf" : true,
-            "xPoweredBy" : false
+            "xPoweredBy" : "PHP 5.1.3",
+            "cookies" : {
+                "name" : "cookie",
+                "keys" : [
+                    "1d89b9d500d2eef910df111578e443931c38ecb9",
+                    "2a678100ed4f86bb040728e5fe9ce1616fb2c28f"
+                ],
+                "maxAge" : 86400000
+            },
+            "sessions" : {
+                "name" : "session",
+                "secret" : "b2dd627ab8be4d7e392b850e572798e387cdf2d0",
+                "maxAge" : 86400000
+            }
         }
     },
     "databases" : {

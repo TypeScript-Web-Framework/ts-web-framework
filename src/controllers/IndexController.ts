@@ -1,13 +1,12 @@
 import {Permission, Permissions, Route, Method, Methods} from "../annotations/Annotations";
-import {AuthController} from "./AuthController";
-import {Settings} from "../core/Settings";
 import {Controller} from "../core/Controller";
 import {CryptoService} from "../services/CryptoService";
+import {IMainController} from "../interfaces/IMainController";
 
 @Route("/index")
 @Method(Methods.GET)
 @Permission(Permissions.READ)
-export class IndexController extends Controller {
+export class IndexController extends Controller implements IMainController {
     public main () {
         let pass : string = "123456";
 

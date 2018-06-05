@@ -5,7 +5,7 @@ const tsProject = ts.createProject('tsconfig.json');
 const minify = require('gulp-minify');
 const uglify = require("gulp-uglify");
 
-gulp.task('transpile', () => {
+gulp.task('transpilate', () => {
     const tsResult = tsProject.src().pipe(tsProject());
     return tsResult.js.pipe(gulp.dest('dist'));
 });

@@ -30,7 +30,8 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
         * [x] @Permission
         * [x] @QueryString
     * [x] Custom Middleware Controller
-        * [x] Custom AuthController
+        * [x] Default AuthController
+        * [ ] Default CorsController
     * [ ] Lifecycle
         * [x] beforeEnter
             * [x] Promise support
@@ -57,6 +58,7 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [ ] as JSON
     * [ ] as XML
 * [ ] Service
+* [x] Cors Settings
 * [ ] Security
     * [X] CSRF Prevention<sup>Using [CSurf](https://github.com/expressjs/csurf)</sup>
     * [ ] Denial-Of-Service Prevention<sup>Using [DDDoS](https://github.com/ololoepepe/dddos)</sup>
@@ -86,9 +88,9 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
         * [x] HMAC-SHA512
         * [x] Checksum-MD5
         * [x] Checksum-SHA1
-* [ ] Custom Middleware
-* [ ] Sessions<sup>Optional</sup>
-* [ ] Cookies<sup>Optional</sup>
+* [x] Custom Middleware
+* [X] Sessions<sup>Using [session](https://github.com/expressjs/session)</sup>
+* [X] Cookies<sup>Using [cookie-session](https://github.com/expressjs/cookie-session)</sup>
 * [ ] Databases Support<sup>Optional</sup>
     * [ ] MongoDB<sup>Using [Mongoose](http://mongoosejs.com/)</sup>
     * [ ] MySQL/MariaDB<sup>Using [mysql](https://github.com/mysqljs/mysql)</sup>
@@ -136,7 +138,7 @@ Define permission to this controller. It can using with you own AuthController
 
 ##### Lifecycle
 ###### `public` `void|Promise<void>` main()
-Main is like to "constructor".
+IMainController is like to "constructor".
 If you overwride this function on you controller returning a promise, the framework will wait to receive some response from promise like resolve or reject to continue execution with `afterEnter` method.
 
 ###### `public` `void|Promise<void>` beforeEnter()
@@ -222,5 +224,12 @@ export class MyOwnService extends Service {}
 ```
 ### Create a new Middleware
 ```typescript
-export class MyOwnMiddleware extends Middleware {}
+export class MyOwnMiddleware extends Middleware implements MiddlewareInject {
+    public inject () : void {
+        this.use(myOwnMiddware({
+            x : 0,
+            y : 0
+        }));
+    }
+}
 ```
