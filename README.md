@@ -32,6 +32,7 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
     * [x] Custom Middleware Controller
         * [x] Default AuthController
         * [ ] Default CorsController
+        * [ ] Default OAuth2Controller
     * [ ] Lifecycle
         * [x] beforeEnter
             * [x] Promise support
