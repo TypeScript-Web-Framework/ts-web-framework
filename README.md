@@ -1,6 +1,4 @@
-A simple, secure, fast and "ergonomic" Cross-platform HMVC Framework writen in TypeScript for Nodejs.
-
-Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators, and many more.
+Ideal to create Web Services.
 
 
 ## Requeriments
@@ -53,12 +51,6 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
         * [x] `403` - httpForbidden
         * [x] `404` - httpNotFound
         * [x] `405` - httpMethodNotAllowed
-* [ ] Model
-* [ ] Vista
-    * [ ] as plain string
-    * [ ] as JSON
-    * [ ] as XML
-* [ ] Service
 * [x] Cors Settings
 * [ ] Security
     * [X] CSRF Prevention<sup>Using [CSurf](https://github.com/expressjs/csurf)</sup>
@@ -92,37 +84,7 @@ Ideal to create Web Services like to REST API, GraphQL API, Bridge, Integrators,
 * [x] Custom Middleware
 * [X] Sessions<sup>Using [session](https://github.com/expressjs/session)</sup>
 * [X] Cookies<sup>Using [cookie-session](https://github.com/expressjs/cookie-session)</sup>
-* [ ] Databases Support<sup>Optional</sup>
-    * [ ] MongoDB<sup>Using [Mongoose](http://mongoosejs.com/)</sup>
-    * [ ] MySQL/MariaDB<sup>Using [mysql](https://github.com/mysqljs/mysql)</sup>
-    * [ ] PostgreSQL<sup>Using [node-postgres](https://node-postgres.com/)</sup>
-    * [ ] Oracle<sup>Using [node-oracledb](https://github.com/oracle/node-oracledb)</sup>
-    * [ ] SQL Server<sup>Using [node-mssql](https://github.com/tediousjs/node-mssql)</sup>
-    * [ ] SQLite3<sup>Using [node-sqlite3](https://github.com/mapbox/node-sqlite3)</sup>
-    * [ ] PouchDB<sup>Using [pouchdb](https://github.com/pouchdb/pouchdb)</sup>
-    * [ ] CouchDB<sup>Using [node-couchdb](https://github.com/1999/node-couchdb)</sup>
-    * [ ] DynamoDB<sup>Using [dynamodb](https://github.com/baseprime/dynamodb)</sup>
-    * [ ] Cosmos DB<sup>Using [azure-documentdb-node](https://github.com/Azure/azure-documentdb-node)</sup>
-    * [ ] Cassandra DB<sup>Using [cassandra-driver](https://github.com/datastax/nodejs-driver)</sup>
-    * [ ] Redis<sup>Using [redis](https://github.com/NodeRedis/node_redis)</sup>
-* [ ] Cache
-    * [ ] Memcached<sup>[Using Memcached](https://github.com/3rd-Eden/memcached)</sup>
-    * [ ] Memory Cache<sup>Using [node-cache](https://github.com/ptarjan/node-cache)</sup>
 * [x] Routes
-* [ ] Storage
-    * [ ] Amazon Web Service S3
-    * [ ] Microsoft Azure Blob Storage
-    * [ ] Google Cloud Storage
-* [ ] Binary CLI
-    * [ ] Create Project
-    * [ ] Create Controller
-    * [ ] Create Model
-    * [ ] Create Vista
-    * [ ] Create Service
-    * [ ] Enable/Disable feature
-* [ ] MinifyJS
-* [ ] Support to AOT(*Ahead-of-time*)<sup>Using [node-packer](https://github.com/pmq20/node-packer)</sup>
-
 
 ## Getting Started
 ### Controllers
@@ -190,47 +152,3 @@ export class AuthController extends Controller {
     }
 }
 ````
-
-
-### Create a new Model
-```typescript
-export class MyOwnModel extends Model {}
-```
-#### Mongodb
-
-
-#### MySQL, MariaDB, PostgreSQL, Oracle models
-##### Annotations
-###### @Entity
-###### @Table
-> Alias of @Entity
-
-###### @Column
-###### @Field
-> Alias of @Column
-
-###### @Id
-###### @PrimaryKey
-###### @Unique
-###### @AutoIncrement
-###### @ForeignKey
-###### @ManyToOne
-###### @OneToOne
-###### @ManyToMany
-###### @Version
-
-### Create a new service
-```typescript
-export class MyOwnService extends Service {}
-```
-### Create a new Middleware
-```typescript
-export class MyOwnMiddleware extends Middleware implements MiddlewareInject {
-    public inject () : void {
-        this.use(myOwnMiddware({
-            x : 0,
-            y : 0
-        }));
-    }
-}
-```
