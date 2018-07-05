@@ -3,9 +3,7 @@ dist: trusty
 language: node_js
 node_js: "8"
 install:
-    - npm install -g gulp mocha istanbul
+    - npm install -g gulp mocha istanbul coveralls
     - npm install
-script:
-    - npm run build
-    - npm test
+script: "npm run test-travis"
 after_script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
