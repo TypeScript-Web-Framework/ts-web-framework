@@ -1,3 +1,7 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/olaferlandsen/typescript-http-framework-mvc/badge.svg?targetFile=package.json)](https://snyk.io/test/github/olaferlandsen/typescript-http-framework-mvc?targetFile=package.json)
+[![dependencies Status](https://david-dm.org/olaferlandsen/typescript-http-framework-mvc/status.svg)](https://david-dm.org/olaferlandsen/typescript-http-framework-mvc)
+[![devDependencies Status](https://david-dm.org/olaferlandsen/typescript-http-framework-mvc/dev-status.svg)](https://david-dm.org/olaferlandsen/typescript-http-framework-mvc?type=dev)
+
 Ideal to create Web Services.
 
 
