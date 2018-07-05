@@ -16,3 +16,21 @@ patch:
         patched: '2018-06-11T13:49:06.753Z'
     - gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
         patched: '2018-06-11T13:49:06.753Z'
+    - gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2018-07-05T22:35:41.281Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2018-07-05T22:35:41.281Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2018-07-05T22:35:41.281Z'
+  'npm:hoek:20180212':
+    - istanbul-coveralls > coveralls > request > hawk > hoek:
+        patched: '2018-07-05T22:35:41.281Z'
+    - istanbul-coveralls > coveralls > request > hawk > boom > hoek:
+        patched: '2018-07-05T22:35:41.281Z'
+    - istanbul-coveralls > coveralls > request > hawk > sntp > hoek:
+        patched: '2018-07-05T22:35:41.281Z'
+    - istanbul-coveralls > coveralls > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-07-05T22:35:41.281Z'
+  'npm:tunnel-agent:20170305':
+    - istanbul-coveralls > coveralls > request > tunnel-agent:
+        patched: '2018-07-05T22:35:41.281Z'
