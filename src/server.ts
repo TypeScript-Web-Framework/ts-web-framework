@@ -5,7 +5,7 @@ debug('ts-express:server');
 //const port = process.env.PORT || 8080;
 const port = process.env.PORT || 3030;
 App.set('port', port);
-const server = http.createServer(App);
+export const server = http.createServer(App);
 server.listen(port);
 server.on('error', (error: NodeJS.ErrnoException): void => {
     if (error.syscall !== 'listen') throw error;

@@ -8,7 +8,8 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "gulp"
+    "build": "gulp",
+    "test": "mocha dist/tests/**/*.js --reporter spec"
   },
   "author": "Olaf Erlandsen",
   "license": "ISC",
@@ -39,6 +40,7 @@
     "patch": "0.0.1",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.2.0",
+    "supertest": "^3.1.0",
     "ua-parser-js": "^0.7.17"
   },
   "devDependencies": {
