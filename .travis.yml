@@ -3,8 +3,9 @@ dist: trusty
 language: node_js
 node_js: "8"
 install:
-    - npm install -g gulp mocha
+    - npm install -g gulp mocha istanbul
     - npm install
 script:
     - npm run build
     - npm test
+after_script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"

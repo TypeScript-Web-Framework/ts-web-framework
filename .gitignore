@@ -1,7 +1,7 @@
 node_modules/
 .idea/
 dist/
-
+coverage/
 # User-specific stuff:
 .idea/workspace.xml
 .idea/tasks.xml
