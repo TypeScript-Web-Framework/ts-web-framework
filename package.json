@@ -10,7 +10,9 @@
         "start": "node dist/server.js",
         "build": "gulp",
         "test": "mocha dist/tests/**/*.js --reporter spec",
-        "test-travis": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./dist/tests/**/*.js"
+        "test-travis": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./dist/tests/**/*.js",
+        "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./dist/tests/**/*.js",
+        "coveralls": "npm run cover && istanbul-coveralls"
     },
     "author": "Olaf Erlandsen",
     "license": "ISC",
@@ -33,6 +35,7 @@
         "gulp-concat": "^2.6.1",
         "gulp-uglify": "^3.0.0",
         "helmet": "^3.12.1",
+        "istanbul-coveralls": "^1.0.3",
         "lodash": "^4.17.10",
         "moment": "^2.22.1",
         "mongodb": "^3.0.7",
