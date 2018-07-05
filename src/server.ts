@@ -1,6 +1,6 @@
 import * as http from 'http';
 import * as debug from 'debug';
-import App from './App';
+import App from './app';
 debug('ts-express:server');
 //const port = process.env.PORT || 8080;
 const port = process.env.PORT || 3030;
