@@ -3,6 +3,7 @@
 [![devDependencies Status](https://david-dm.org/olaferlandsen/typescript-http-framework-mvc/dev-status.svg)](https://david-dm.org/olaferlandsen/typescript-http-framework-mvc?type=dev)
 [![Build status](https://ci.appveyor.com/api/projects/status/q6cpofnt1ajm2npx?svg=true)](https://ci.appveyor.com/project/olaferlandsen/typescript-http-framework-mvc)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a4de1d6326dea75dfbec/maintainability)](https://codeclimate.com/github/olaferlandsen/typescript-http-framework-mvc/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/olaferlandsen/typescript-http-framework-mvc/badge.svg?branch=master)](https://coveralls.io/github/olaferlandsen/typescript-http-framework-mvc?branch=master)
 
 Ideal to create Web Services.
 
