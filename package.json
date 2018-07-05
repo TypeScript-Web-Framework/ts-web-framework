@@ -8,9 +8,7 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "gulp scripts",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "build": "gulp scripts"
   },
   "author": "Olaf Erlandsen",
   "license": "ISC",
@@ -37,10 +35,10 @@
     "mongodb": "^3.0.7",
     "mongoose": "^5.0.16",
     "morgan": "^1.7.0",
+    "patch": "0.0.1",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.2.0",
-    "ua-parser-js": "^0.7.17",
-    "snyk": "^1.82.1"
+    "ua-parser-js": "^0.7.17"
   },
   "devDependencies": {
     "@types/body-parser": "0.0.33",
@@ -56,9 +54,8 @@
     "chai": "^4.1.2",
     "gulp": "^4.0.0",
     "gulp-minify": "^2.1.0",
-    "gulp-typescript": "^3.1.1",
+    "gulp-typescript": "^4.0.1",
     "mocha": "^5.2.0",
     "typescript": "^2.8.3"
-  },
-  "snyk": true
+  }
 }
