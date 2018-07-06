@@ -1,4 +1,5 @@
 
+[![npm version](https://badge.fury.io/js/ts-web-framework.svg)](https://badge.fury.io/js/ts-web-framework)
 [![Known Vulnerabilities](https://snyk.io/test/github/olaferlandsen/ts-web-framework/badge.svg?targetFile=package.json)](https://snyk.io/test/github/olaferlandsen/ts-web-framework?targetFile=package.json)
 [![dependencies Status](https://david-dm.org/olaferlandsen/ts-web-framework/status.svg)](https://david-dm.org/olaferlandsen/ts-web-framework)
 [![devDependencies Status](https://david-dm.org/olaferlandsen/ts-web-framework/dev-status.svg)](https://david-dm.org/olaferlandsen/ts-web-framework?type=dev)
@@ -7,6 +8,16 @@
 [![Build Status](https://travis-ci.org/olaferlandsen/ts-web-framework.svg?branch=master)](https://travis-ci.org/olaferlandsen/ts-web-framework)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/9156773c1dc4c906d84a/test_coverage)](https://codeclimate.com/github/olaferlandsen/ts-web-framework/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9156773c1dc4c906d84a/maintainability)](https://codeclimate.com/github/olaferlandsen/ts-web-framework/maintainability)
+[![Inline docs](http://inch-ci.org/github/olaferlandsen/ts-web-framework.svg?branch=master)](http://inch-ci.org/github/olaferlandsen/ts-web-framework)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/olaferlandsen/ts-web-framework/issues)
+[![HitCount](http://hits.dwyl.com/olaferlandsen/ts-web-framework.svg)](http://hits.dwyl.com/olaferlandsen/ts-web-framework)
+[![GitHub issues](https://img.shields.io/github/issues/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/issues)
+[![GitHub forks](https://img.shields.io/github/forks/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/network)
+[![GitHub stars](https://img.shields.io/github/stars/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/stargazers)
+[![GitHub license](https://img.shields.io/github/license/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/blob/master/LICENSE)
+[![Github All Releases](https://img.shields.io/github/downloads/olaferlandsen/ts-web-framework/total.svg)]()
+
+
 
 # TypeScript Web Framework
 
@@ -16,6 +27,18 @@ Ideal to create Web Services.
 ## Requeriments
 * Nodejs 6+
 * TypeScript 2.8+
+
+## Install
+
+You can install with NPM
+```
+npm install ts-web-framework
+```
+
+Or via Git:
+```
+git clone https://github.com/olaferlandsen/ts-web-framework.git
+```
 
 ## Tested & Platform Support
 * [x] Microsoft
