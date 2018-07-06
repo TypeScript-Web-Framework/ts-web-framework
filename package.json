@@ -2,7 +2,7 @@
   "engines": {
     "node": "8.9.4"
   },
-  "name": "typescript-http-framework-mvc",
+  "name": "ts-web-framework",
   "version": "1.0.0",
   "description": "",
   "main": "dist/server.js",
@@ -16,8 +16,8 @@
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
   },
-  "author": "Olaf Erlandsen",
-  "license": "ISC",
+  "author": "Olaf Erlandsen C.",
+  "license": "MIT",
   "dependencies": {
     "@types/csurf": "^1.9.35",
     "@types/helmet": "0.0.38",
