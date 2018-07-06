@@ -86,7 +86,7 @@ git clone https://github.com/olaferlandsen/ts-web-framework.git
         * [x] `403` - httpForbidden
         * [x] `404` - httpNotFound
         * [x] `405` - httpMethodNotAllowed
-* [x] Cors Settings
+* [x] Cors Manifiest
 * [ ] Security
     * [X] CSRF Prevention<sup>Using [CSurf](https://github.com/expressjs/csurf)</sup>
     * [ ] Denial-Of-Service Prevention<sup>Using [DDDoS](https://github.com/ololoepepe/dddos)</sup>

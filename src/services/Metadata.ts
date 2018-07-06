@@ -28,6 +28,7 @@ export class Metadata {
     static updateAttributes (target: any, update: any): void {
         let attributes : IApiAttributesAnnotation = Metadata.getAttributes(target);
         if (!attributes) attributes = {
+            controller: target.constructor.name || null,
             uri : null,
             method : null,
             permission : null,

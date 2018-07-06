@@ -1,6 +1,9 @@
 import * as _ from 'lodash';
-export class Settings {
-    static settings : object = JSON.parse(require('fs').readFileSync('./src/settings.json', 'utf8'));
+import * as path from 'path';
+export class Manifiest {
+    static settings : object = JSON.parse(require('fs')
+        .readFileSync(path.dirname(__dirname) + '/manifiest.json', 'utf8'));
+
     public static get (path : string, defaultValue?: any):any {
         return this.exists(path) ? _.get(this.settings, path) : defaultValue;
     }
@@ -41,15 +44,12 @@ export class Settings {
     public static exists (path : string):boolean {
         return _.has(this.settings, path);
     }
-
     public static equalTo (path : string, equalTo : any, strictMode:boolean = false):boolean {
-        if(strictMode === true) return Settings.get(path) === equalTo;
-        return Settings.get(path) == equalTo;
+        if(strictMode === true) return Manifiest.get(path) === equalTo;
+        return Manifiest.get(path) == equalTo;
     }
-
     public static comapareTo (path : string, pathToCompare: any, strictMode : boolean = false):boolean {
-        if(strictMode === true) return Settings.get(path) === Settings.get(pathToCompare);
-        return Settings.get(path) == Settings.get(pathToCompare);
+        if(strictMode === true) return Manifiest.get(path) === Manifiest.get(pathToCompare);
+        return Manifiest.get(path) == Manifiest.get(pathToCompare);
     }
-
 }

@@ -1,9 +1,9 @@
 import * as http from 'http';
 import * as debug from 'debug';
 import App from './app';
+import {Manifiest} from "./core/Manifiest";
 debug('ts-express:server');
-//const port = process.env.PORT || 8080;
-const port = process.env.PORT || 3030;
+const port = Manifiest.get("http.defaultPort", process.env.PORT );
 App.set('port', port);
 export const server = http.createServer(App);
 server.listen(port);
@@ -26,5 +26,6 @@ server.on('error', (error: NodeJS.ErrnoException): void => {
 server.on('listening', () : void => {
     let addr : any = server.address();
     let bind = (typeof addr === "string") ? `pipe ${addr}` : `port ${addr.port}`;
+    console.log(`Listening on ${bind}`);
     debug(`Listening on ${bind}`);
 });

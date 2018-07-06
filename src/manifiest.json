@@ -1,4 +1,5 @@
 {
+    "mode" : "prod",
     "http": {
         "defaultPort" : 8080,
         "ssl" : {

@@ -13,6 +13,7 @@
     "scripts": {
         "start": "node dist/server.js",
         "build": "gulp",
+        "serve": "npm run build && npm run start",
         "test": "mocha dist/tests/**/*.js --reporter spec",
         "test-travis": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./dist/tests/**/*.js",
         "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./dist/tests/**/*.js",
@@ -28,7 +29,15 @@
         }
     ],
     "license": "MIT",
-    "keywords": ["ts", "web", "framework", "http", "server", "api", "rest"],
+    "keywords": [
+        "ts",
+        "web",
+        "framework",
+        "http",
+        "server",
+        "api",
+        "rest"
+    ],
     "bugs": {
         "url": "https://github.com/olaferlandsen/ts-web-framework/issues",
         "email": "olaftriskel@gmail.com"
@@ -49,9 +58,6 @@
         "express": "^4.14.0",
         "express-session": "^1.15.6",
         "gulp": "^4.0.0",
-        "gulp-clean": "^0.4.0",
-        "gulp-concat": "^2.6.1",
-        "gulp-uglify": "^3.0.0",
         "helmet": "^3.12.1",
         "istanbul-coveralls": "^1.0.3",
         "lodash": "^4.17.10",
@@ -79,11 +85,14 @@
         "@types/rx": "^4.1.1",
         "chai": "^4.1.2",
         "coveralls": "^3.0.2",
+        "gulp-clean": "^0.4.0",
         "gulp-minify": "^3.1.0",
+        "gulp-remove-logging": "^1.2.0",
+        "gulp-rm": "^1.0.5",
         "gulp-typescript": "^4.0.1",
         "istanbul": "^0.4.5",
         "mocha": "^5.2.0",
         "typescript": "^2.8.3"
     },
-    "snyk": true
+    "snyk": false
 }

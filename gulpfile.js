@@ -1,12 +1,48 @@
 const gulp = require('gulp');
 const ts = require('gulp-typescript');
-const tsProject = ts.createProject('tsconfig.json');
-
-gulp.task("transpilate", function () {
-    return tsProject
-        .src()
-        .pipe(tsProject())
-        .js
-        .pipe(gulp.dest('dist'));
+const logging = require("gulp-remove-logging");
+const fs = require("fs");
+const tsProject = ts.createProject('tsconfig.json', {
+    declaration : false,
+    removeComments : true,
+    declarationFiles :false
 });
-gulp.task("default", gulp.series("transpilate"));
+const minify = require('gulp-minify');
+const clean = require('gulp-clean');
+const manifiest = JSON.parse(fs.readFileSync('src/manifiest.json', 'utf8'));
+
+
+
+gulp.task("compile", () => gulp
+    .src( __dirname + "/src/**/*.ts")
+    .pipe(tsProject())
+    .pipe(gulp.dest(__dirname + '/tmp'))
+);
+gulp.task('compress', () => {
+    let chain = gulp.src(__dirname + '/tmp/**/*.js');
+    if (manifiest.mode === "prod") {
+        chain = chain.pipe(logging({
+            namespace: ["window.console", "console", "process.stdout"]
+        }));
+    } else console.warn('manifiest is not "prod" mode');
+
+    return chain.pipe(minify({
+        mangle: true,
+        noSource: true,
+        ext: {min: '.js'}
+    })).pipe(gulp.dest(__dirname + '/dist'))
+});
+gulp.task("remove:tmp", () => gulp
+    .src( [__dirname + '/tmp'], { read: false, allowEmpty:  true})
+    .pipe(clean())
+);
+gulp.task("remove:dist", () => gulp
+    .src( __dirname + '/dist', {read : false, allowEmpty: true})
+    .pipe(clean())
+);
+gulp.task("copy:json", () => gulp
+    .src( __dirname + "/src/**/*.json")
+    .pipe(gulp.dest(__dirname + '/dist'))
+);
+
+gulp.task("default", gulp.series(['remove:dist' , 'compile', 'compress' , 'copy:json', 'remove:tmp']));

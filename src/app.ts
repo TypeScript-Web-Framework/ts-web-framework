@@ -30,18 +30,14 @@ class Server {
         this.routes();
     }
     private middleware(): void {
-        for (let middleware of this.middlewares) {
-            new (middleware.prototype.constructor)(this.express);
-        }
+        for (let middleware of this.middlewares) (new (middleware.prototype.constructor)(this.express));
     }
     private routes(): void {
         let router : Router = express.Router();
         for (let controller of this.controllers) {
-
-
             let attrs : IApiAttributesAnnotation = Metadata.getAttributes(controller.prototype);
             if (!attrs) continue;
-            console.log(`${attrs.method.toUpperCase()} ${attrs.uri}`);
+            console.log(`${attrs.method.toUpperCase()} ${attrs.uri == "" ? "/" : attrs.uri} => ${attrs.controller}`);
             (router as any)[ attrs.method ](attrs.uri, (i:any, o:any) => {
                 try {
                     new (controller.prototype.constructor as FunctionConstructor)(i, o);

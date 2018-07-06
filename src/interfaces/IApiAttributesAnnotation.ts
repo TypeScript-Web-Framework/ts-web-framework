@@ -1,4 +1,5 @@
 export interface IApiAttributesAnnotation {
+    controller : string,
     permission : string,
     method : string,
     uri : string
