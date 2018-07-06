@@ -28,6 +28,12 @@ patch:
         patched: '2018-07-06T00:30:52.583Z'
     - gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
         patched: '2018-07-06T00:30:52.583Z'
+    - gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2018-07-06T00:45:08.909Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2018-07-06T00:45:08.909Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2018-07-06T00:45:08.909Z'
   'npm:hoek:20180212':
     - istanbul-coveralls > coveralls > request > hawk > hoek:
         patched: '2018-07-05T22:35:41.281Z'
@@ -50,3 +56,5 @@ patch:
         patched: '2018-07-05T22:35:41.281Z'
     - istanbul-coveralls > coveralls > request > tunnel-agent:
         patched: '2018-07-06T00:30:52.583Z'
+    - istanbul-coveralls > coveralls > request > tunnel-agent:
+        patched: '2018-07-06T00:45:08.909Z'
