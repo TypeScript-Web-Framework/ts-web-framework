@@ -6,12 +6,13 @@
 [![Coverage Status](https://coveralls.io/repos/github/olaferlandsen/typescript-http-framework-mvc/badge.svg?branch=master)](https://coveralls.io/github/olaferlandsen/typescript-http-framework-mvc?branch=master)
 [ ![Codeship Status for olaferlandsen/typescript-http-framework-mvc](https://app.codeship.com/projects/af0b7890-62bd-0136-29ae-6e1d62f3513e/status?branch=master)](https://app.codeship.com/projects/296883)
 [![Build Status](https://travis-ci.org/olaferlandsen/typescript-http-framework-mvc.svg?branch=master)](https://travis-ci.org/olaferlandsen/typescript-http-framework-mvc)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a4de1d6326dea75dfbec/test_coverage)](https://codeclimate.com/github/olaferlandsen/typescript-http-framework-mvc/test_coverage)
 
 Ideal to create Web Services.
 
 
 ## Requeriments
-* Nodejs 8+
+* Nodejs 6+
 * TypeScript 2.8+
 
 ## Tested & Platform Support

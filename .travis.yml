@@ -1,7 +1,15 @@
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=07e9c486f9ceabb93424f97c4eaba268ce4d1d1ca52ae786ee0e0d73ae03a034
+
 sudo: required
 dist: trusty
 language: node_js
-node_js: "8"
+node_js:
+    - "6"
+    - "7"
+    - "8"
 install:
     - npm install -g gulp mocha istanbul istanbul-coveralls coveralls
     - npm install

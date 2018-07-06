@@ -43,7 +43,8 @@ export class CryptoService {
         dec += decipher.final('utf8');
         return dec;
     }
-    public static aes256GcmEncrypt (value : string, masterKey : string):string {
+    public static aes256GcmEncrypt (value : string, masterKey : string):string|void {
+        /*
         let iv : Buffer = crypto.randomBytes(16);
         let salt : Buffer = crypto.randomBytes(64);
         let key : Buffer = crypto.pbkdf2Sync(masterKey, salt, 2145, 32, "sha1");
@@ -52,10 +53,12 @@ export class CryptoService {
             cipher.update(value, "utf8"),
             cipher.final()
         ]);
-        let tag  = cipher.getAuthTag();
+        //let tag  = cipher.getAuthTag();
         return Buffer.concat([salt, iv, tag, encrypted]).toString("base64")
+        */
     }
-    public static aes256GcmDecrypt (value : string, masterKey : string):string {
+    public static aes256GcmDecrypt (value : string, masterKey : string):string|void {
+        /*
         let bData : Buffer = new Buffer(value, 'base64');
         let salt : Buffer = bData.slice(0, 64);
         let iv : Buffer = bData.slice(64, 80);
@@ -65,6 +68,7 @@ export class CryptoService {
         let decipher = crypto.createDecipheriv('aes-256-gcm', key, iv);
         decipher.setAuthTag(tag);
         return decipher.update(text, 'binary', 'utf8') + decipher.final('utf8');
+        */
     }
 
 
