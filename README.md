@@ -1,13 +1,12 @@
-[![Known Vulnerabilities](https://snyk.io/test/github/olaferlandsen/typescript-http-framework-mvc/badge.svg?targetFile=package.json)](https://snyk.io/test/github/olaferlandsen/typescript-http-framework-mvc?targetFile=package.json)
-[![dependencies Status](https://david-dm.org/olaferlandsen/typescript-http-framework-mvc/status.svg)](https://david-dm.org/olaferlandsen/typescript-http-framework-mvc)
-[![devDependencies Status](https://david-dm.org/olaferlandsen/typescript-http-framework-mvc/dev-status.svg)](https://david-dm.org/olaferlandsen/typescript-http-framework-mvc?type=dev)
-[![Build status](https://ci.appveyor.com/api/projects/status/q6cpofnt1ajm2npx?svg=true)](https://ci.appveyor.com/project/olaferlandsen/typescript-http-framework-mvc)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a4de1d6326dea75dfbec/maintainability)](https://codeclimate.com/github/olaferlandsen/typescript-http-framework-mvc/maintainability)
-[![Coverage Status](https://coveralls.io/repos/github/olaferlandsen/typescript-http-framework-mvc/badge.svg?branch=master)](https://coveralls.io/github/olaferlandsen/typescript-http-framework-mvc?branch=master)
-[ ![Codeship Status for olaferlandsen/typescript-http-framework-mvc](https://app.codeship.com/projects/af0b7890-62bd-0136-29ae-6e1d62f3513e/status?branch=master)](https://app.codeship.com/projects/296883)
-[![Build Status](https://travis-ci.org/olaferlandsen/typescript-http-framework-mvc.svg?branch=master)](https://travis-ci.org/olaferlandsen/typescript-http-framework-mvc)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a4de1d6326dea75dfbec/test_coverage)](https://codeclimate.com/github/olaferlandsen/typescript-http-framework-mvc/test_coverage)
 
+[![Known Vulnerabilities](https://snyk.io/test/github/olaferlandsen/ts-web-framework/badge.svg?targetFile=package.json)](https://snyk.io/test/github/olaferlandsen/ts-web-framework?targetFile=package.json)
+[![dependencies Status](https://david-dm.org/olaferlandsen/ts-web-framework/status.svg)](https://david-dm.org/olaferlandsen/ts-web-framework)
+[![devDependencies Status](https://david-dm.org/olaferlandsen/ts-web-framework/dev-status.svg)](https://david-dm.org/olaferlandsen/ts-web-framework?type=dev)
+[![Build status](https://ci.appveyor.com/api/projects/status/ai1w0sturxu1ea0w/branch/master?svg=true)](https://ci.appveyor.com/project/olaferlandsen/ts-web-framework/branch/master)
+[![Codeship Status for olaferlandsen/ts-web-framework](https://app.codeship.com/projects/04f86bc0-6361-0136-224a-06be1f03f909/status?branch=master)](https://app.codeship.com/projects/297007)
+[![Build Status](https://travis-ci.org/olaferlandsen/ts-web-framework.svg?branch=master)](https://travis-ci.org/olaferlandsen/ts-web-framework)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/9156773c1dc4c906d84a/test_coverage)](https://codeclimate.com/github/olaferlandsen/ts-web-framework/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9156773c1dc4c906d84a/maintainability)](https://codeclimate.com/github/olaferlandsen/ts-web-framework/maintainability)
 
 # TypeScript Web Framework
 
