@@ -17,7 +17,7 @@
 [![GitHub license](https://img.shields.io/github/license/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/blob/master/LICENSE)
 [![Github All Releases](https://img.shields.io/github/downloads/olaferlandsen/ts-web-framework/total.svg)]()
 
-
+[![NPM](https://nodei.co/npm/ts-web-framework.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ts-web-framework/)
 
 # TypeScript Web Framework
 
