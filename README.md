@@ -12,10 +12,8 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/olaferlandsen/ts-web-framework/issues)
 [![HitCount](http://hits.dwyl.com/olaferlandsen/ts-web-framework.svg)](http://hits.dwyl.com/olaferlandsen/ts-web-framework)
 [![GitHub issues](https://img.shields.io/github/issues/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/issues)
-[![GitHub forks](https://img.shields.io/github/forks/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/network)
 [![GitHub stars](https://img.shields.io/github/stars/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/stargazers)
 [![GitHub license](https://img.shields.io/github/license/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/blob/master/LICENSE)
-[![Github All Releases](https://img.shields.io/github/downloads/olaferlandsen/ts-web-framework/total.svg)]()
 
 [![NPM](https://nodei.co/npm/ts-web-framework.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ts-web-framework/)
 
