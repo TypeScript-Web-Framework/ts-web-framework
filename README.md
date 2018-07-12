@@ -121,6 +121,26 @@ git clone https://github.com/olaferlandsen/ts-web-framework.git
 * [x] Package single binary file<sup>Using [pkg](https://github.com/zeit/pkg)</sup>
 
 ## Getting Started
+### Commands
+
+#### Build
+```
+npm run build
+```
+#### Test
+```
+npm test
+```
+#### Run/Serve
+```
+npm run serve
+```
+#### Package Single Binany
+```
+npm run pkg
+```
+
+
 ### Controllers
 This framework only support one controller by uri
 
