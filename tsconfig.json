@@ -1,5 +1,7 @@
 {
     "compilerOptions": {
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
         "target": "es2015",
         "module": "commonjs",
         "outDir": "dist",

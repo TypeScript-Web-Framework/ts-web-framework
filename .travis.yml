@@ -11,8 +11,8 @@ node_js:
     - "7"
     - "8"
 install:
-    - npm install -g gulp mocha istanbul istanbul-coveralls coveralls
+    - npm install -g gulp-cli mocha
     - npm install
 script:
     - npm run build
-after_script: "npm run coveralls"
+    - npm test

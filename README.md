@@ -118,6 +118,7 @@ git clone https://github.com/olaferlandsen/ts-web-framework.git
 * [X] Sessions<sup>Using [session](https://github.com/expressjs/session)</sup>
 * [X] Cookies<sup>Using [cookie-session](https://github.com/expressjs/cookie-session)</sup>
 * [x] Routes
+* [x] Package single binary file<sup>Using [pkg](https://github.com/zeit/pkg)</sup>
 
 ## Getting Started
 ### Controllers

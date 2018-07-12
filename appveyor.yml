@@ -7,7 +7,7 @@ environment:
 
 install:
   - ps: Install-Product node $env:nodejs_version
-  - npm install -g gulp mocha istanbul istanbul-coveralls coveralls
+  - npm install -g gulp-cli mocha
   - npm install
   - npm run build
 
