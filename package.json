@@ -17,7 +17,8 @@
         "test": "mocha dist/tests/**/*.js --reporter spec",
         "snyk-protect": "snyk protect",
         "prepare": "npm run snyk-protect",
-        "pkg" : "pkg -t node6 --out-path ./bin --options max_old_space_size=4096 ."
+        "pkg": "npm run build && npm test && pkg -t node6 --out-path ./bin --options max_old_space_size=4096 .",
+        "creator": "./bin/"
     },
     "author": "Olaf Erlandsen C.",
     "contributors": [
@@ -76,6 +77,7 @@
         "@types/node": "^10.5.2",
         "@types/rx": "^4.1.1",
         "chai": "^4.1.2",
+        "commander": "^2.16.0",
         "gulp-clean": "^0.4.0",
         "gulp-minify": "^3.1.0",
         "gulp-remove-logging": "^1.2.0",
@@ -89,5 +91,5 @@
         "scripts": "dist/**/*.js",
         "assets": "dist/**/*.json"
     },
-    "bin" : "dist/server.js"
+    "bin": "dist/server.js"
 }

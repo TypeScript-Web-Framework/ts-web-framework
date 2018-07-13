@@ -11,9 +11,9 @@ export enum Methods {
     OPTIONS = "options",
     TRACE   = "trace"
 }
-export function Method (method : Methods):any;
+export function Method (method : Methods | string):any;
 export function Method (...args:any[]):any {
-    let  annotate :Function = (target: FunctionConstructor, method?: Methods):void => {
+    let  annotate :Function = (target: FunctionConstructor, method?: Methods | string):void => {
         Metadata.updateAttributes(target.prototype, {
             method : method
         });

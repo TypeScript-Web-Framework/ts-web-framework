@@ -20,17 +20,21 @@ gulp.task("compile", () => gulp
 );
 gulp.task('compress', () => {
     let chain = gulp.src(__dirname + '/tmp/**/*.js');
-    if (manifiest.mode === "prod") {
-        chain = chain.pipe(logging({
-            namespace: ["window.console", "console", "process.stdout"]
-        }));
-    } else console.warn('manifiest is not "prod" mode');
 
-    return chain.pipe(minify({
-        mangle: true,
-        noSource: true,
-        ext: {min: '.js'}
-    })).pipe(gulp.dest(__dirname + '/dist'))
+    if (manifiest.mode === "prod") {
+        chain = chain
+            .pipe(logging({
+                namespace: ["window.console", "console", "process.stdout"]
+            }))
+            .pipe(minify({
+                mangle: true,
+                noSource: true,
+                ext: {min: '.js'}
+            }))
+    } else {
+        console.warn('manifiest is not "prod" mode');
+    }
+    return chain.pipe(gulp.dest(__dirname + '/dist'))
 });
 gulp.task("remove:tmp", () => gulp
     .src( [__dirname + '/tmp'], { read: false, allowEmpty:  true})

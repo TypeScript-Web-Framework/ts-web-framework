@@ -1,5 +1,5 @@
 {
-    "mode" : "prod",
+    "mode" : "debug",
     "http": {
         "defaultPort" : 8080,
         "ssl" : {

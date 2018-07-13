@@ -10,6 +10,9 @@ export class Metadata {
         ATTRIBUTE   : 'Controller:attribute',
         CONTROLLER   : 'Controller:controller',
         CONTROLLER_LIST   : 'Controller:controllers',
+
+
+
     };
     static readonly DEFAULT_OPTIONS : Object = {};
 
