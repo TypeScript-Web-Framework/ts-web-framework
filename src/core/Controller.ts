@@ -1,6 +1,4 @@
-import {Metadata} from "../services/Metadata";
 import {Request, Response} from "express-serve-static-core";
-import { Observable } from 'rxjs';
 export interface IController {
     params : () => { [key : string ] : string };
     queryString : () => { [key : string ] : string };
@@ -16,37 +14,7 @@ export interface IController {
     httpRedirect : (uri:string, permanently?:boolean) => void;
 }
 export class Controller implements IController {
-    private hasBadRequest : any = null;
-    public constructor(public request: Request, public response : Response)
-    {
-        let attrs = Metadata.getAttributes(this.constructor.prototype);
-        /*
-        for (let key in attrs.queryParams) {
-            let element = attrs.queryParams[key];
-            let value : string = this.request.query[key];
-            if (attrs.queryParams[key].required === true && !(key in this.request.query)) {
-                this.hasBadRequest = `required "${key}" as query string param`;
-                break;
-            }
-            else {
-                if (element.validator instanceof RegExp && !element.validator.test(value)) {
-                    this.hasBadRequest = `Invalid format for '"${key}"'.`;
-                    break;
-                }
-                if (element.type === "date") this.request.query[key] = new Date(Date.parse(this.request.query[key]));
-                if (element.type === "integer") this.request.query[key] = parseInt(this.request.query[key]);
-                if (element.type === "float") this.request.query[key] = parseFloat(this.request.query[key]);
-                if (element.type === "json") this.request.query[key] = JSON.parse(this.request.query[key]);
-                if (element.type === "decode:json") this.request.query[key] = JSON.parse(decodeURIComponent(this.request.query[key]));
-            }
-        }
-        */
-    }
-    //public beforeEnter ():Promise<void>|void {}
-    //public afterEnter ():Promise<void>|void {}
-    public main ():Promise<void>|void {
-        if (this.hasBadRequest !== null) return this.httpBadRequest({error : this.hasBadRequest});
-        return this.httpOk();
+    public constructor(public request: Request, public response : Response) {
     }
     public end (statusCode?: number, data?: any, asJson?:boolean):void {
         if (this.response.headersSent) return;
@@ -69,7 +37,6 @@ export class Controller implements IController {
         }
         this.response.end();
     }
-
     public params <T>():{[key:string]:T};
     public params (key:string):Promise<any>;
     public params (key:string, defaultValue : any):Promise<any>;
@@ -128,10 +95,10 @@ export class Controller implements IController {
     public httpOk (data?: any, asJson : boolean = true):void {
         this.end(200, data, asJson);
     }
-    public httpCreated (data : any, asJson : boolean = true):void {
+    public httpCreated (data?: any, asJson : boolean = true):void {
         this.end(201, data, asJson);
     }
-    public httpAccepted (data : any, asJson : boolean = true):void {
+    public httpAccepted (data?: any, asJson : boolean = true):void {
         this.end(202, data, asJson);
     }
     public httpNotFound (data?:any, asJson : boolean = true):void {

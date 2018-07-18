@@ -70,13 +70,4 @@ export class Annotations {
             target
         );
     }
-
-    // Set one attribute
-    public static setAttribute (target:FunctionConstructor, key : string, value : any):void {
-        if (!Annotations.isValidPrototype(target)) throw new TypeError("setAttribute");
-        let attributes: any =  Reflect.getMetadata(Annotations.KEYS.ATTRIBUTE, Annotations.constructor.prototype) || null;
-        if (attributes === null) attributes = {};
-        attributes[key] = value;
-        Annotations.setAttributes(Annotations.constructor.prototype, attributes);
-    }
 }

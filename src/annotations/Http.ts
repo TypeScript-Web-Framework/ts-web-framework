@@ -2,10 +2,7 @@ import {Annotations} from "../core/Annotations";
 import 'reflect-metadata';
 
 // Http definitions
-
-
 export type ActionMethod = "GET" | "PUT" | "DELETE" | "POST" | "PATCH" | "HEAD" | "OPTIONS";
-
 
 export function Http(route : string, method?: ActionMethod) : Function;
 export function Http(target: FunctionConstructor, propertyName: string, propertyDescriptor?:PropertyDescriptor): void;
@@ -44,9 +41,7 @@ let  annotate : Function = (
     method: ActionMethod
 ): void => {
     route = route.trim().replace(/\/+/g, "/");
-
     if (route == "//" || route === "\\") route = "";
-
     let options: any = {};
     if (propertyDescriptor) {
         if (propertyDescriptor.get) options.get = propertyDescriptor.get;

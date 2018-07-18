@@ -1,7 +1,5 @@
 import * as express from 'express';
 import {Router} from "express";
-import {Metadata} from "./services/Metadata";
-import {IApiAttributesAnnotation} from "./interfaces/IApiAttributesAnnotation";
 import "reflect-metadata";
 import {IndexController} from "./controllers/IndexController";
 import {BodyParserMiddleware} from "./middleware/BodyParserMiddleware";
@@ -12,13 +10,13 @@ import {CookieMiddleware} from "./middleware/CookieMiddleware";
 import {SessionsMiddleware} from "./middleware/SessionsMiddleware";
 import {Annotations} from "./core/Annotations";
 
+// Define server class
 class Server {
+    // declare express property
     public express: express.Application;
-
-    private controllers : Array<any> = [
-        IndexController
-    ];
-
+    // declare controllers
+    private controllers : Array<any> = [IndexController];
+    // declare and import middlewares
     private middlewares : Array<Function> = [
         BodyParserMiddleware,
         CorsMiddleware,
@@ -27,14 +25,17 @@ class Server {
         CookieMiddleware,
         SessionsMiddleware
     ];
+    // implement constructor
     public constructor() {
         this.express = express();
         this.middleware();
         this.routes();
     }
+    // implement middlewares
     private middleware(): void {
         for (let middleware of this.middlewares) (new (middleware.prototype.constructor)(this.express));
     }
+    // implements routing
     private routes(): void {
         let router : Router = express.Router();
         for (let api of (Annotations.fetchApi() as any[])) {
@@ -56,4 +57,5 @@ class Server {
         this.express.use('/', router);
     }
 }
+// export server
 export default new Server().express;

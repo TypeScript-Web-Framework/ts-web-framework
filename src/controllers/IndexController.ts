@@ -1,18 +1,17 @@
-import {HttpDelete, HttpGet, HttpPost, HttpPut} from "../annotations/Http";
+import {Http, HttpDelete, HttpPost, HttpPut} from "../annotations/Http";
 import {Controller} from "../core/Controller";
-import {IMainController} from "../interfaces/IMainController";
 import {Api} from "../annotations/Api";
 
 
 @Api
-export class IndexController extends Controller implements IMainController {
+export class IndexController extends Controller {
 
     @HttpPost("/")
     public create () {
-        this.httpOk();
+        this.httpCreated();
     }
 
-    @HttpGet("/")
+    @Http("/")
     public read () {
         this.httpOk();
     }
@@ -25,6 +24,21 @@ export class IndexController extends Controller implements IMainController {
     @HttpDelete("/")
     public delete () {
         this.httpOk();
+    }
+
+    @Http("/bad-request")
+    public error () {
+        this.httpBadRequest();
+    }
+
+    @Http("/bad-unauthorized")
+    public unauthorized () {
+        this.httpUnauthorized();
+    }
+
+    @Http("/forbidden")
+    public Forbidden () {
+        this.httpForbidden();
     }
 
 }
