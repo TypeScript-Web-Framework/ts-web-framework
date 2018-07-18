@@ -30,12 +30,12 @@ Ideal to create Web Services.
 ### Clone
 ```
 git clone https://github.com/olaferlandsen/ts-web-framework.git
-git checkout tags/v1.0.0-alpha
+git checkout tags/v1.7.4-beta
 ```
 
 ### Or Download
 ```
-wget https://github.com/olaferlandsen/ts-web-framework/archive/v1.0.0-alpha.zip
+wget https://github.com/olaferlandsen/ts-web-framework/archive/v1.7.4-beta.zip
 ```
 
 ## Features
