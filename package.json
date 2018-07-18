@@ -9,12 +9,12 @@
         "type": "git",
         "url": "https://github.com/olaferlandsen/ts-web-framework.git"
     },
-    "main": "dist/server.js",
+    "main": "www/server.js",
     "scripts": {
-        "start": "node dist/server.js",
+        "start": "node www/server.js",
         "build": "gulp",
         "serve": "npm run build && npm run start",
-        "test": "mocha dist/tests/**/*.js --reporter spec",
+        "test": "mocha www/tests/**/*.js --reporter spec",
         "snyk-protect": "snyk protect",
         "prepare": "npm run snyk-protect",
         "pkg": "npm run build && npm test && pkg -t node6 --out-path ./bin --options max_old_space_size=4096 .",
@@ -88,8 +88,8 @@
     },
     "snyk": false,
     "pkg": {
-        "scripts": "dist/**/*.js",
-        "assets": "dist/**/*.json"
+        "scripts": "www/**/*.js",
+        "assets": "www/**/*.json"
     },
-    "bin": "dist/server.js"
+    "bin": "www/server.js"
 }

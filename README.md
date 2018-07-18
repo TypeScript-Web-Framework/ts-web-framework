@@ -27,128 +27,54 @@ Ideal to create Web Services.
 * TypeScript 2.8+
 
 ## Install
-
-You can install with NPM
-```
-npm install ts-web-framework
-```
-
-Or via Git:
+### Clone
 ```
 git clone https://github.com/olaferlandsen/ts-web-framework.git
+git checkout tags/v1.0.0-alpha
 ```
 
-## Tested & Platform Support
-* [x] Microsoft
-    * [x] Windows 7+
-    * [x] Azure AppService
-* [x] Linux
-    * [x] Ubuntu
-    * [x] Fedora
-    * [x] CentOS
-    * [x] RedHat
-    * [x] Debian
-    * [x] AWS EC2
-    * [x] Arduino
-    * [x] Android Termux
-* [x] OSX
+### Or Download
+```
+wget https://github.com/olaferlandsen/ts-web-framework/archive/v1.0.0-alpha.zip
+```
 
 ## Features
-* [x] Controller
-    * [x] Annotations
-    * [x] Custom Middleware Controller
-        * [x] Default AuthController
-        * [ ] Default CorsController
-        * [ ] Default OAuth2Controller
-    * [ ] Lifecycle
-        * [x] beforeEnter
-            * [x] Promise support
-        * [x] main
-            * [x] Promise support
-        * [ ] afterEnter
-            * [ ] Promise support
-    * [x] Easy Response
-        * [x] as Plain Text
-        * [x] as JSON
-        * [x] `200` - httpOk
-        * [x] `201` - httpCreated
-        * [x] `202` - httpAccepted
-        * [x] `301` - httpRedirect
-        * [x] `307` - httpRedirect
-        * [x] `400` - httpBadRequest
-        * [x] `401` - httpUnauthorized
-        * [x] `403` - httpForbidden
-        * [x] `404` - httpNotFound
-        * [x] `405` - httpMethodNotAllowed
-* [x] Cors Manifiest
-* [ ] Security
-    * [X] CSRF Prevention<sup>Using [CSurf](https://github.com/expressjs/csurf)</sup>
-    * [ ] Denial-Of-Service Prevention<sup>Using [DDDoS](https://github.com/ololoepepe/dddos)</sup>
-    * [x] Expect-CT<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [x] Content Security Policy<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [x] DNS Prefetch Control<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [x] X-Frame-Options<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [x] Hiden Powerd By<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [x] HTTP Public Key Pinning<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [x] HTTP Strict Transport Security<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [x] X-Download-Options for IE8+<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [x] No Cache<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [x] No Sniff<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [x] Referrer-Policy<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [X] XSS Prevention<sup>Using [Helmet](https://helmetjs.github.io/)</sup>
-    * [x] Basic Cryptography<sup>Using [crypto](https://nodejs.org/api/crypto.html#crypto_crypto)</sup>
-        * [x] AES-256-CTR Encrypt/Decrypt
-        * [ ] AES-256-GCM Encrypt/Decrypt
-        * [ ] AES-256-CBC Encrypt/Decrypt
-    * [x] Hashing<sup>Using [crypto](https://nodejs.org/api/crypto.html#crypto_crypto)</sup>
-        * [x] SHA1
-        * [x] SHA256
-        * [x] SHA512
-        * [x] MD5
-        * [x] HMAC-SHA1
-        * [x] HMAC-SHA256
-        * [x] HMAC-SHA512
-        * [x] Checksum-MD5
-        * [x] Checksum-SHA1
-* [x] Custom Middleware
-* [X] Sessions<sup>Using [session](https://github.com/expressjs/session)</sup>
-* [X] Cookies<sup>Using [cookie-session](https://github.com/expressjs/cookie-session)</sup>
-* [x] Routes
-* [x] Package single binary file<sup>Using [pkg](https://github.com/zeit/pkg)</sup>
+### Security
+* [x] CSRF Prevention
+* [x] Expect-CT
+* [x] Content Security Policy
+* [x] DNS Prefetch Control
+* [x] X-Frame-Options
+* [x] Hiden Powerd By
+* [x] HTTP Public Key Pinning
+* [x] HTTP Strict Transport Security
+* [x] X-Download-Options for IE8+
+* [x] No Cache
+* [x] No Sniff
+* [x] Referrer-Policy
+* [x] XSS Prevention
+* [x] AES-256-CTR, AES-256-GCM, AES-256-CBC Encrypt/Decrypt implementation
+* [ ] Denial-Of-Service Prevention
+### Easy Custom Responses
+* [x] httpOk - `200`
+* [x] httpCreated - `201`
+* [x] httpAccepted - `202`
+* [x] httpRedirect - `301` & `307`
+* [x] httpBadRequest - `400`
+* [x] httpUnauthorized - `401`
+* [x] httpForbidden - `403`
+* [x] httpNotFound - `404`
+* [x] httpMethodNotAllowed - `405`
+### Cross-platform
+* [x] Microsoft Windows(XP, Vista, 8, 10, ...)
+* [x] Linux (Ubuntu, Centos, Fedora, RedHat, ...)
+* [x] OSX
+
+
+
 
 ## Getting Started
-### Commands
-
-#### Build
-```
-npm run build
-```
-#### Test
-```
-npm test
-```
-#### Run/Serve
-```
-npm run serve
-```
-#### Package Single Binany
-```
-npm run package
-```
-
-
-### Controllers
-This framework only support one controller by uri
-
-#### Create a new Controller
-##### Annotations
-###### @Api
-Define URL for access to this controller
-###### @Http
-Define method to access to this controller
-
-
-#### Example code
+### Example code
 ````typescript
 @Api
 export class CrudController extends Controller {
@@ -174,8 +100,26 @@ export class CrudController extends Controller {
 }
 ````
 
+### Commands
+#### Build
+```
+npm run build
+```
+#### Test
+```
+npm test
+```
+#### Run/Serve
+```
+npm run serve
+```
+#### Package Single Binany
+```
+npm run package
+```
 
-## Licence
+
+# Licence
 
 MIT License
 
