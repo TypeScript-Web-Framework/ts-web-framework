@@ -56,10 +56,6 @@ git clone https://github.com/olaferlandsen/ts-web-framework.git
 ## Features
 * [x] Controller
     * [x] Annotations
-        * [x] @Uri
-        * [x] @Method
-        * [x] @Permission
-        * [x] @QueryString
     * [x] Custom Middleware Controller
         * [x] Default AuthController
         * [ ] Default CorsController
@@ -137,7 +133,7 @@ npm run serve
 ```
 #### Package Single Binany
 ```
-npm run pkg
+npm run package
 ```
 
 
@@ -146,63 +142,34 @@ This framework only support one controller by uri
 
 #### Create a new Controller
 ##### Annotations
-###### @Route
+###### @Api
 Define URL for access to this controller
-###### @Method
+###### @Http
 Define method to access to this controller
-###### @Permission
-Define permission to this controller. It can using with you own AuthController
 
-##### Lifecycle
-###### `public` `void|Promise<void>` main()
-IMainController is like to "constructor".
-If you overwride this function on you controller returning a promise, the framework will wait to receive some response from promise like resolve or reject to continue execution with `afterEnter` method.
-
-###### `public` `void|Promise<void>` beforeEnter()
-Before execute main
-If you overwride this function on you controller returning a promise, the framework will wait to receive some response from promise like resolve or reject to continue execution with `main` method.
-
-###### `public` `void|Promise<void>` afterEnter()
-After execute main, this method will execute.
 
 #### Example code
 ````typescript
-import {Route, Method, Permission, QueryString, Methods, Permissions, QueryStringTypes} from "../annotations/Annotations";
-import {Controller} from "../core/Controller";
-
-@Route("/my-own-url")
-@Method(Methods.GET)
-@Permission(Permissions.READ)
-@QueryString("data", QueryStringTypes.JSON, false)
-export class MyOwnController extends Controller {
-    public main () {
+@Api
+export class CrudController extends Controller {
+    @HttpPost("/profile")
+    public create () {
+        this.httpCreated();
+    }
+    
+    @HttpGet("/profile/:id")
+    public read () {
         this.httpOk();
     }
-}
-````
-#### Middleware Controller
-##### AuthController
-> 
-````typescript
-import {Controller} from "../core/Controller";
-export class AuthController extends Controller {
-    public beforeEnter ():Promise<any> {
-        return new Promise((resolve, reject) => {
-            if (!this.headers.exists("x-auth-token")) reject(new HttpUnauthorizedException());
-            resolve();
-        })
-    }
-}
-````
-##### AuthController without Promise
-````typescript
-import {Controller} from "../core/Controller";
-export class AuthController extends Controller {
     
-    public beforeEnter ():void {
-        if (!("x-auth-controller" in this.request.headers)) {
-            throw new HttpUnauthorizedException();
-        }
+    @HttpPut("/profile/:id")
+    public updtae () {
+        this.httpOk();
+    }
+    
+    @HttpDelete("/profile/:id")
+    public delete () {
+        this.httpOk();
     }
 }
 ````

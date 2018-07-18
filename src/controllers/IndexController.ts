@@ -1,16 +1,30 @@
-import {Action} from "../annotations/Action";
+import {HttpDelete, HttpGet, HttpPost, HttpPut} from "../annotations/Http";
 import {Controller} from "../core/Controller";
 import {IMainController} from "../interfaces/IMainController";
-import {Methods, Route} from "../annotations/Annotations";
-import {Method} from "../annotations/Method";
+import {Api} from "../annotations/Api";
 
 
-@Route("")
-@Method(Methods.GET)
+@Api
 export class IndexController extends Controller implements IMainController {
 
-    @Action("/person/:id", "GET")
-    public main () {
+    @HttpPost("/")
+    public create () {
         this.httpOk();
     }
+
+    @HttpGet("/")
+    public read () {
+        this.httpOk();
+    }
+
+    @HttpPut("/")
+    public update () {
+        this.httpOk();
+    }
+
+    @HttpDelete("/")
+    public delete () {
+        this.httpOk();
+    }
+
 }

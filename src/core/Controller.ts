@@ -1,9 +1,7 @@
 import {Metadata} from "../services/Metadata";
 import {Request, Response} from "express-serve-static-core";
 import { Observable } from 'rxjs';
-import {IMainController} from "../interfaces/IMainController";
 export interface IController {
-    main: () => void;
     params : () => { [key : string ] : string };
     queryString : () => { [key : string ] : string };
     end : (statusCode?: number, data?:any, asJson?:boolean) => void;
@@ -17,14 +15,15 @@ export interface IController {
     httpMethodNotAllowed : (data?:any, asJson?:boolean) => void;
     httpRedirect : (uri:string, permanently?:boolean) => void;
 }
-export class Controller implements IController, IMainController{
+export class Controller implements IController {
     private hasBadRequest : any = null;
-    public constructor(public request: Request, public response : Response) {
+    public constructor(public request: Request, public response : Response)
+    {
         let attrs = Metadata.getAttributes(this.constructor.prototype);
+        /*
         for (let key in attrs.queryParams) {
             let element = attrs.queryParams[key];
             let value : string = this.request.query[key];
-
             if (attrs.queryParams[key].required === true && !(key in this.request.query)) {
                 this.hasBadRequest = `required "${key}" as query string param`;
                 break;
@@ -41,33 +40,7 @@ export class Controller implements IController, IMainController{
                 if (element.type === "decode:json") this.request.query[key] = JSON.parse(decodeURIComponent(this.request.query[key]));
             }
         }
-        if (this.hasBadRequest === null) {
-            if ('beforeEnter' in this) {
-                try {
-
-                    let beforeEnter : any = (<any>this).beforeEnter();
-
-                    if (beforeEnter instanceof Observable) beforeEnter = (beforeEnter as Observable<any>).toPromise();
-                    if (beforeEnter instanceof Promise) {
-                        beforeEnter
-                            .then(() => this.main())
-                            .catch( e => this.httpBadRequest(e.toString()))
-                    }
-                    else (<any>this).main();
-                }
-                catch (error) {
-                    (<any>this).httpBadRequest(error);
-                }
-            }
-            else {
-                this.main();
-            }
-
-
-        }
-        else this.httpBadRequest({
-            error : this.hasBadRequest
-        });
+        */
     }
     //public beforeEnter ():Promise<void>|void {}
     //public afterEnter ():Promise<void>|void {}

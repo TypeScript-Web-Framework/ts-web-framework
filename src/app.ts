@@ -10,12 +10,15 @@ import {LoggerMiddleware} from "./middleware/LoggerMiddleware";
 import {SecurityMiddleware} from "./middleware/SecurityMiddleware";
 import {CookieMiddleware} from "./middleware/CookieMiddleware";
 import {SessionsMiddleware} from "./middleware/SessionsMiddleware";
+import {Annotations} from "./core/Annotations";
 
 class Server {
     public express: express.Application;
+
     private controllers : Array<any> = [
         IndexController
     ];
+
     private middlewares : Array<Function> = [
         BodyParserMiddleware,
         CorsMiddleware,
@@ -34,19 +37,21 @@ class Server {
     }
     private routes(): void {
         let router : Router = express.Router();
-        for (let controller of this.controllers) {
-            let attrs : IApiAttributesAnnotation = Metadata.getAttributes(controller.prototype);
-            if (!attrs) continue;
-            console.log(`${attrs.method.toUpperCase()} ${attrs.uri == "" ? "/" : attrs.uri} => ${attrs.controller}`);
-            (router as any)[ attrs.method ](attrs.uri, (i:any, o:any) => {
-                try {
-                    new (controller.prototype.constructor as FunctionConstructor)(i, o);
-                }
-                catch (e) {
-                    o.status(401);
-                    o.end();
-                }
-            });
+        for (let api of (Annotations.fetchApi() as any[])) {
+            for (let rule of Annotations.getActions(api)) {
+                console.log(`${rule.method.toUpperCase()} ${rule.route == "" ? "/" : rule.route} => ${api.name}.${rule.name}`);
+                (router as any)[ rule.method.toLowerCase() ](rule.route, (i:any, o:any) => {
+                    try {
+                        let x :any = new (api as FunctionConstructor)(i, o);
+                        x[rule.name].apply(x, []);
+                    }
+                    catch (e) {
+                        console.error(e);
+                        o.status(500);
+                        o.end();
+                    }
+                });
+            }
         }
         this.express.use('/', router);
     }
