@@ -26,19 +26,14 @@ Ideal to create Web Services.
 * Nodejs 6+
 * TypeScript 2.8+
 
-## Install
-### Clone
-```
-git clone https://github.com/olaferlandsen/ts-web-framework.git
-git checkout tags/v1.7.4-beta
-```
-
-### Or Download
-```
-wget https://github.com/olaferlandsen/ts-web-framework/archive/v1.7.4-beta.zip
+## Install(Windows, Linux and OSX)
+```bash
+npm install -g twf-cli
 ```
 
 ## Features
+### Command Line Interface
+* [x] Own command line interface
 ### Security
 * [x] CSRF Prevention
 * [x] Expect-CT
@@ -54,6 +49,7 @@ wget https://github.com/olaferlandsen/ts-web-framework/archive/v1.7.4-beta.zip
 * [x] Referrer-Policy
 * [x] XSS Prevention
 * [x] AES-256-CTR, AES-256-GCM, AES-256-CBC Encrypt/Decrypt implementation
+* [x] Single Binary file compilation
 * [ ] Denial-Of-Service Prevention
 ### Easy Custom Responses
 * [x] httpOk - `200`
@@ -74,48 +70,53 @@ wget https://github.com/olaferlandsen/ts-web-framework/archive/v1.7.4-beta.zip
 
 
 ## Getting Started
-### Example code
+### Install TWF-CLI(TypeScript Web Framework Command Line Interface)
+```bash
+npm install -g twf-cli
+```
+
+### Create you first project
+```bash
+twf start my-project
+```
+
+### Create you first controller
+#### Using TWF-CLI
+```bash
+twf add controller hello-world hello/world
+```
+
+#### Check you own controller
 ````typescript
 @Api
-export class CrudController extends Controller {
-    @HttpPost("/profile")
-    public create () {
-        this.httpCreated();
-    }
-    
-    @HttpGet("/profile/:id")
-    public read () {
-        this.httpOk();
-    }
-    
-    @HttpPut("/profile/:id")
-    public updtae () {
-        this.httpOk();
-    }
-    
-    @HttpDelete("/profile/:id")
-    public delete () {
+export class HelloWorldController extends Controller {
+    @Http("/hello/world")
+    public index () {
         this.httpOk();
     }
 }
 ````
 
 ### Commands
-#### Build
+#### Compile
 ```
-npm run build
+twf build
 ```
 #### Test
 ```
-npm test
+twf test
 ```
 #### Run/Serve
 ```
-npm run serve
+twf serve
+```
+#### Verify
+```
+twf verify
 ```
 #### Package Single Binany
 ```
-npm run package
+twf package
 ```
 
 
