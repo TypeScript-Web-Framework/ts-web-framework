@@ -15,7 +15,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/stargazers)
 [![GitHub license](https://img.shields.io/github/license/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/blob/master/LICENSE)
 
-[![NPM](https://nodei.co/npm/ts-web-framework.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ts-web-framework/)
+[![NPM](https://nodei.co/npm/twf-cli.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/twf-cli/)
 
 # TypeScript Web Framework
 
