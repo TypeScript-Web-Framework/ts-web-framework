@@ -15,8 +15,6 @@
         "build": "gulp",
         "serve": "npm run build && npm run start",
         "test": "mocha www/tests/**/*.js --reporter spec",
-        "snyk-protect": "snyk protect",
-        "prepare": "npm run snyk-protect",
         "pkg": "npm run build && npm test && pkg -t node6 --out-path ./bin --options max_old_space_size=4096 .",
         "creator": "./bin/"
     },
@@ -86,7 +84,6 @@
         "mocha": "^5.2.0",
         "typescript": "^2.8.3"
     },
-    "snyk": false,
     "pkg": {
         "scripts": "www/**/*.js",
         "assets": "www/**/*.json"
