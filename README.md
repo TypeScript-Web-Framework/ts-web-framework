@@ -15,7 +15,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/TypeScript-Web-Framework/ts-web-framework.svg)](https://github.com/TypeScript-Web-Framework/ts-web-framework/stargazers)
 [![GitHub license](https://img.shields.io/github/license/TypeScript-Web-Framework/ts-web-framework.svg)](https://github.com/TypeScript-Web-Framework/ts-web-framework/blob/master/LICENSE)
 
-[![NPM](https://nodei.co/npm/twf-cli.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/twf-cli/)
+[![NPM](https://nodei.co/npm/twf-cli.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/twf-cli/) [![Greenkeeper badge](https://badges.greenkeeper.io/TypeScript-Web-Framework/ts-web-framework.svg)](https://greenkeeper.io/)
 
 # TypeScript Web Framework
 
