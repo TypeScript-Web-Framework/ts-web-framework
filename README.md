@@ -89,9 +89,9 @@ twf add controller hello-world hello/world
 
 #### Check you own controller
 ````typescript
-@Api
+@Api('/api')
 export class HelloWorldController extends Controller {
-    @HttpAnnotation("/hello/world")
+    @Http("/hello/world") // you route is : GET /api/hello/world
     public index () {
         this.httpOk();
     }
