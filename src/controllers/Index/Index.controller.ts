@@ -145,7 +145,7 @@ export class IndexController extends Controller {
     }
 
     @HttpExpect({
-        example : {type: Object, in: 'body', required: true}
+        example : {type: String, in: 'body', required: true}
     })
     @HttpPost("/http-expect-application-json")
     public applicationJson() {
