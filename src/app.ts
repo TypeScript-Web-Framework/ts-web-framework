@@ -60,7 +60,6 @@ class Server {
         const router: express.Router = express.Router();
         for (const api of (Annotations.fetchApi() as any[])) {
             let apiInfo = Annotations.getApi(api.prototype.constructor);
-            console.group(apiInfo.name);
             for (const rule of Annotations.getActions(api)) {
                 let route: string[]|string = [];
                 if (apiInfo.manifiest === true) {
@@ -97,7 +96,6 @@ class Server {
                     }
                 });
             }
-            console.groupEnd();
         }
         this.express.use('/', router);
     }
