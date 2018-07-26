@@ -90,7 +90,7 @@ twf add controller hello-world hello/world
 ````typescript
 @Api
 export class HelloWorldController extends Controller {
-    @Http("/hello/world")
+    @HttpAnnotation("/hello/world")
     public index () {
         this.httpOk();
     }

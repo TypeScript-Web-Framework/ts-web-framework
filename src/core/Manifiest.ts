@@ -1,11 +1,11 @@
 import * as _ from 'lodash';
 import * as path from 'path';
 export class Manifiest {
-    static settings : object = JSON.parse(require('fs')
+    static readonly json : any = JSON.parse(require('fs')
         .readFileSync(path.dirname(__dirname) + '/manifiest.json', 'utf8'));
 
     public static get (path : string, defaultValue?: any):any {
-        return this.exists(path) ? _.get(this.settings, path) : defaultValue;
+        return this.exists(path) ? _.get(this.json, path) : defaultValue;
     }
     public static getArray (path:string, defaultValue?: any[]):Array<any> {
         let value : any = this.get(path, defaultValue);
@@ -42,7 +42,7 @@ export class Manifiest {
         return typeof value === "string" ? (new Date(Date.parse(value))) : defaultValue;
     }
     public static exists (path : string):boolean {
-        return _.has(this.settings, path);
+        return _.has(this.json, path);
     }
     public static equalTo (path : string, equalTo : any, strictMode:boolean = false):boolean {
         if(strictMode === true) return Manifiest.get(path) === equalTo;

@@ -2,7 +2,7 @@
     "compilerOptions": {
         "noImplicitReturns": true,
         "noImplicitThis": true,
-        "target": "es2015",
+        "target": "es6",
         "module": "commonjs",
         "outDir": "dist",
         "experimentalDecorators": true,
@@ -11,7 +11,9 @@
         "noImplicitAny": true,
         "declaration": true,
         "sourceMap": true,
-        "lib": ["es6", "es2017"]
+        "lib": ["es2015", "es6", "es2017"],
+        "pretty": true,
+        "keyofStringsOnly": true
     },
     "include": [
         "src/**/*.ts"

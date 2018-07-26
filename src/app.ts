@@ -1,49 +1,93 @@
 import * as express from 'express';
-import {Router} from "express";
-import "reflect-metadata";
-import {IndexController} from "./controllers/IndexController";
-import {BodyParserMiddleware} from "./middleware/BodyParserMiddleware";
-import {CorsMiddleware} from "./middleware/CorsMiddleware";
-import {LoggerMiddleware} from "./middleware/LoggerMiddleware";
-import {SecurityMiddleware} from "./middleware/SecurityMiddleware";
-import {CookieMiddleware} from "./middleware/CookieMiddleware";
-import {SessionsMiddleware} from "./middleware/SessionsMiddleware";
-import {Annotations} from "./core/Annotations";
+import 'reflect-metadata';
+import { IndexController } from './controllers/Index/Index.controller';
+import { BodyParserMiddleware } from './middleware/BodyParser.middleware';
+import { CorsMiddleware } from './middleware/Cors.middleware';
+import { LoggerMiddleware } from './middleware/Logger.middleware';
+import { SecurityMiddleware } from './middleware/Security.middleware';
+import { CookieMiddleware } from './middleware/Cookie.middleware';
+import { SessionsMiddleware } from './middleware/Sessions.middleware';
+import { Annotations } from './core/Annotations';
+import { MiddlewareInject } from './core/MiddlewareInject';
+import { Manifiest } from './core/Manifiest';
+import { CookieParserMiddleware } from './middleware/CookieParser.middleware';
 
 // Define server class
 class Server {
     // declare express property
     public express: express.Application;
     // declare controllers
-    private controllers : Array<any> = [IndexController];
+    // noinspection JSMismatchedCollectionQueryUpdate
+    // noinspection JSUnusedLocalSymbols
+    private controllers: any[] = [
+        IndexController
+    ];
     // declare and import middlewares
-    private middlewares : Array<Function> = [
+    private middlewares: Function[] = [
         BodyParserMiddleware,
         CorsMiddleware,
         LoggerMiddleware,
         SecurityMiddleware,
         CookieMiddleware,
+        CookieParserMiddleware,
         SessionsMiddleware
     ];
     // implement constructor
     public constructor() {
         this.express = express();
-        this.middleware();
-        this.routes();
+        this.middleware()
+            .then(() => {
+                this.routes();
+            })
+            .catch((e: any) => {
+                console.log('error', e);
+            });
+
     }
     // implement middlewares
-    private middleware(): void {
-        for (let middleware of this.middlewares) (new (middleware.prototype.constructor)(this.express));
+    private middleware(): Promise<any> {
+        const promises: Promise<any>[] = [];
+        for (const middleware of this.middlewares) {
+            const instance: MiddlewareInject = (new (middleware.prototype.constructor)(this.express));
+            const inject: any | Promise<any> = instance.inject();
+            if (inject instanceof Promise) promises.push(inject as Promise<any>);
+        }
+        return Promise.all(promises);
     }
     // implements routing
     private routes(): void {
-        let router : Router = express.Router();
-        for (let api of (Annotations.fetchApi() as any[])) {
-            for (let rule of Annotations.getActions(api)) {
-                console.log(`${rule.method.toUpperCase()} ${rule.route == "" ? "/" : rule.route} => ${api.name}.${rule.name}`);
-                (router as any)[ rule.method.toLowerCase() ](rule.route, (i:any, o:any) => {
+
+        const router: express.Router = express.Router();
+        for (const api of (Annotations.fetchApi() as any[])) {
+            let apiInfo = Annotations.getApi(api.prototype.constructor);
+            console.group(apiInfo.name);
+            for (const rule of Annotations.getActions(api)) {
+                let route: string[]|string = [];
+                if (apiInfo.manifiest === true) {
+                    if (Manifiest.exists('http.root')) {
+                        let manifiestRoot: string = Manifiest.getString('http.root', undefined);
+                        // noinspection SuspiciousTypeOfGuard
+                        if (typeof manifiestRoot === 'string' && manifiestRoot.trim().length > 0) route.push(manifiestRoot.trim());
+                    }
+                }
+                route.push(apiInfo.root);
+                route.push(rule.route);
+                route = route.join('/');
+                route =  route
+                    .replace(/\/+/g, '/')
+                    .replace(/(^\/+|\/+$)/g, '');
+                route = '/' + route;
+                route = route.replace(/\s+/g, '');
+                let method: string = ' '.repeat(10);
+                let preMethod: string = rule.method.toUpperCase().replace(/\s+/g, '');
+                method = preMethod + method.substr(preMethod.length);
+                let action: string = ' '.repeat(60);
+                let preAction = (api.name + '.' + rule.name).replace(/\s+/g, '');
+                action = preAction + action.substr(preAction.length);
+                console.log(method + ' ' + action + ' ' + route);
+                (router as any)[ rule.method.toLowerCase() ](route, (i: any, o: any) => {
                     try {
-                        let x :any = new (api as FunctionConstructor)(i, o);
+                        const x: any = new (api as FunctionConstructor)(i, o);
                         x[rule.name].apply(x, []);
                     }
                     catch (e) {
@@ -53,6 +97,7 @@ class Server {
                     }
                 });
             }
+            console.groupEnd();
         }
         this.express.use('/', router);
     }

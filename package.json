@@ -15,8 +15,10 @@
         "build": "gulp",
         "serve": "npm run build && npm run start",
         "test": "mocha www/tests/**/*.js --reporter spec",
-        "pkg": "npm run build && npm test && pkg -t node6 --out-path ./bin --options max_old_space_size=4096 .",
-        "creator": "./bin/"
+        "pkg": "npm run build && npm test && pkg -t node8-x64 --out-path ./bin --options max_old_space_size=4096 .",
+        "pkg32": "npm run build && npm test && pkg -t node8-x32 --out-path ./bin --options max_old_space_size=4096 .",
+        "creator": "./bin/",
+        "pretest" : "npm run build"
     },
     "author": "Olaf Erlandsen C.",
     "contributors": [
