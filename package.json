@@ -7,7 +7,7 @@
     "description": "A Web Server Framework ideal for create REST api's",
     "repository": {
         "type": "git",
-        "url": "https://github.com/olaferlandsen/ts-web-framework.git"
+        "url": "https://github.com/TypeScript-Web-Framework/ts-web-framework.git"
     },
     "main": "www/server.js",
     "scripts": {
@@ -38,10 +38,10 @@
         "rest"
     ],
     "bugs": {
-        "url": "https://github.com/olaferlandsen/ts-web-framework/issues",
+        "url": "https://github.com/TypeScript-Web-Framework/ts-web-framework/issues",
         "email": "olaftriskel@gmail.com"
     },
-    "homepage": "https://github.com/olaferlandsen/ts-web-framework",
+    "homepage": "https://github.com/TypeScript-Web-Framework/ts-web-framework",
     "dependencies": {
         "@types/csurf": "^1.9.35",
         "@types/helmet": "0.0.38",

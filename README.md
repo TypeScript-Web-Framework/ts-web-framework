@@ -1,21 +1,21 @@
 
 [![npm version](https://badge.fury.io/js/ts-web-framework.svg)](https://badge.fury.io/js/ts-web-framework)
-[![Known Vulnerabilities](https://snyk.io/test/github/olaferlandsen/ts-web-framework/badge.svg?targetFile=package.json)](https://snyk.io/test/github/olaferlandsen/ts-web-framework?targetFile=package.json)
-[![dependencies Status](https://david-dm.org/olaferlandsen/ts-web-framework/status.svg)](https://david-dm.org/olaferlandsen/ts-web-framework)
-[![devDependencies Status](https://david-dm.org/olaferlandsen/ts-web-framework/dev-status.svg)](https://david-dm.org/olaferlandsen/ts-web-framework?type=dev)
-[![Build status](https://ci.appveyor.com/api/projects/status/ai1w0sturxu1ea0w/branch/master?svg=true)](https://ci.appveyor.com/project/olaferlandsen/ts-web-framework/branch/master)
-[![Codeship Status for olaferlandsen/ts-web-framework](https://app.codeship.com/projects/04f86bc0-6361-0136-224a-06be1f03f909/status?branch=master)](https://app.codeship.com/projects/297007)
-[![Build Status](https://travis-ci.org/olaferlandsen/ts-web-framework.svg?branch=master)](https://travis-ci.org/olaferlandsen/ts-web-framework)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/9156773c1dc4c906d84a/test_coverage)](https://codeclimate.com/github/olaferlandsen/ts-web-framework/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/9156773c1dc4c906d84a/maintainability)](https://codeclimate.com/github/olaferlandsen/ts-web-framework/maintainability)
-[![Inline docs](http://inch-ci.org/github/olaferlandsen/ts-web-framework.svg?branch=master)](http://inch-ci.org/github/olaferlandsen/ts-web-framework)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/olaferlandsen/ts-web-framework/issues)
-[![HitCount](http://hits.dwyl.com/olaferlandsen/ts-web-framework.svg)](http://hits.dwyl.com/olaferlandsen/ts-web-framework)
-[![GitHub issues](https://img.shields.io/github/issues/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/issues)
-[![GitHub stars](https://img.shields.io/github/stars/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/stargazers)
-[![GitHub license](https://img.shields.io/github/license/olaferlandsen/ts-web-framework.svg)](https://github.com/olaferlandsen/ts-web-framework/blob/master/LICENSE)
+[![Known Vulnerabilities](https://snyk.io/test/github/TypeScript-Web-Framework/ts-web-framework/badge.svg?targetFile=package.json)](https://snyk.io/test/github/TypeScript-Web-Framework/ts-web-framework?targetFile=package.json)
+[![dependencies Status](https://david-dm.org/TypeScript-Web-Framework/ts-web-framework/status.svg)](https://david-dm.org/TypeScript-Web-Framework/ts-web-framework)
+[![devDependencies Status](https://david-dm.org/TypeScript-Web-Framework/ts-web-framework/dev-status.svg)](https://david-dm.org/TypeScript-Web-Framework/ts-web-framework?type=dev)
+[![Build status](https://ci.appveyor.com/api/projects/status/ai1w0sturxu1ea0w/branch/master?svg=true)](https://ci.appveyor.com/project/TypeScript-Web-Framework/ts-web-framework/branch/master)
+[![Codeship Status for TypeScript-Web-Framework/ts-web-framework](https://app.codeship.com/projects/04f86bc0-6361-0136-224a-06be1f03f909/status?branch=master)](https://app.codeship.com/projects/297007)
+[![Build Status](https://travis-ci.org/TypeScript-Web-Framework/ts-web-framework.svg?branch=master)](https://travis-ci.org/TypeScript-Web-Framework/ts-web-framework)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/9156773c1dc4c906d84a/test_coverage)](https://codeclimate.com/github/TypeScript-Web-Framework/ts-web-framework/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a30199a83a02cc3cd0c8/maintainability)](https://codeclimate.com/github/TypeScript-Web-Framework/ts-web-framework/maintainability)
+[![Inline docs](http://inch-ci.org/github/TypeScript-Web-Framework/ts-web-framework.svg?branch=master)](http://inch-ci.org/github/TypeScript-Web-Framework/ts-web-framework)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/TypeScript-Web-Framework/ts-web-framework/issues)
+[![HitCount](http://hits.dwyl.com/TypeScript-Web-Framework/ts-web-framework.svg)](http://hits.dwyl.com/TypeScript-Web-Framework/ts-web-framework)
+[![GitHub issues](https://img.shields.io/github/issues/TypeScript-Web-Framework/ts-web-framework.svg)](https://github.com/TypeScript-Web-Framework/ts-web-framework/issues)
+[![GitHub stars](https://img.shields.io/github/stars/TypeScript-Web-Framework/ts-web-framework.svg)](https://github.com/TypeScript-Web-Framework/ts-web-framework/stargazers)
+[![GitHub license](https://img.shields.io/github/license/TypeScript-Web-Framework/ts-web-framework.svg)](https://github.com/TypeScript-Web-Framework/ts-web-framework/blob/master/LICENSE)
 
-[![NPM](https://nodei.co/npm/twf-cli.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/twf-cli/)
+[![NPM](https://nodei.co/npm/twf-cli.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/twf-cli/) [![Greenkeeper badge](https://badges.greenkeeper.io/TypeScript-Web-Framework/ts-web-framework.svg)](https://greenkeeper.io/)
 
 # TypeScript Web Framework
 
@@ -24,9 +24,10 @@ Ideal to create Web Services.
 
 ## Requeriments
 * Nodejs 6+
-* TypeScript 2.8+
+* TypeScript 2.2+
 
 ## Install(Windows, Linux and OSX)
+First, install [TypeScript Web Framework CLI](https://github.com/TypeScript-Web-Framework/twf-cli)
 ```bash
 npm install -g twf-cli
 ```
