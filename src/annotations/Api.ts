@@ -7,7 +7,7 @@ export function Api (...args: any[]): any {
         Annotations.setApi(target, {
             name : target.prototype.constructor.name,
             root : ('/' + (rootPath || '')).trim().replace(/\/+/g, '/').replace(/(^\/+|\/+$)/g, ''),
-            manifiest : useManifiest || false
+            manifiest : useManifiest === true
         });
         return;
     };
