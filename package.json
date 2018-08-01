@@ -63,7 +63,7 @@
         "patch": "0.0.1",
         "reflect-metadata": "^0.1.12",
         "rxjs": "^6.2.0",
-        "snyk": "1.89.0",
+        "snyk": "1.90.0",
         "supertest": "^3.1.0",
         "ua-parser-js": "^0.7.17"
     },
