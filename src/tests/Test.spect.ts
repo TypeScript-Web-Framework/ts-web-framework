@@ -1,5 +1,6 @@
+import 'mocha';
 import App from '../app';
-import * as http from "http";
+import * as http from 'http';
 
 const request = require('supertest');
 let server = http.createServer(App);
@@ -11,9 +12,8 @@ describe('test all features', () => {
         if (server) server.close();
     });
     afterEach(() => {
-        server.close()
+        server.close();
     });
-
     describe('Trying CRUD',  () => {
         it('Create /', done => {
             request(server).post('/test').expect(201, done);
@@ -28,7 +28,7 @@ describe('test all features', () => {
             request(server).delete('/test').expect(204, done);
         });
     });
-    describe('Expect error', ()=> {
+    describe('Expect error', () => {
         it('Bad Request', done => {
             request(server).get('/test/bad-request').expect(400, done);
         });
@@ -99,7 +99,6 @@ describe('test all features', () => {
                 .set('content-type', 'application/json')
                 .expect(200, done);
         });
-
     });
 
 });

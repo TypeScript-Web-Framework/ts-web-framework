@@ -1,6 +1,5 @@
 import * as express from 'express';
 import 'reflect-metadata';
-import { IndexController } from './controllers/Index/Index.controller';
 import { BodyParserMiddleware } from './middleware/BodyParser.middleware';
 import { CorsMiddleware } from './middleware/Cors.middleware';
 import { LoggerMiddleware } from './middleware/Logger.middleware';
@@ -10,8 +9,10 @@ import { SessionsMiddleware } from './middleware/Sessions.middleware';
 import { Annotations } from './core/Annotations';
 import { MiddlewareInject } from './core/MiddlewareInject';
 import { Manifiest } from './core/Manifiest';
-import { CookieParserMiddleware } from './middleware/CookieParser.middleware';
-
+import { Debug } from './core/Debug';
+import {IndexController} from "./controllers/IndexController";
+import {CookieParserMiddleware} from "./middleware/CookieParser.middleware";
+const c = require('ansi-colors');
 // Define server class
 class Server {
     // declare express property
@@ -19,9 +20,11 @@ class Server {
     // declare controllers
     // noinspection JSMismatchedCollectionQueryUpdate
     // noinspection JSUnusedLocalSymbols
-    private controllers: any[] = [
-        IndexController
-    ];
+    // noinspection JSMismatchedCollectionQueryUpdate
+    // noinspection JSUnusedLocalSymbols
+    // noinspection JSMismatchedCollectionQueryUpdate
+    // noinspection JSUnusedLocalSymbols
+    private controllers: any[] = [IndexController];
     // declare and import middlewares
     private middlewares: Function[] = [
         BodyParserMiddleware,
@@ -29,20 +32,18 @@ class Server {
         LoggerMiddleware,
         SecurityMiddleware,
         CookieMiddleware,
-        CookieParserMiddleware,
-        SessionsMiddleware
+        SessionsMiddleware,
+        CookieParserMiddleware
     ];
     // implement constructor
     public constructor() {
+        process.stdout.write('\u001b[2J');
+        process.stdout.write('\u001b[1;1H');
+        process.stdout.write('\u001b[3J');
         this.express = express();
         this.middleware()
-            .then(() => {
-                this.routes();
-            })
-            .catch((e: any) => {
-                console.log('error', e);
-            });
-
+            .then(() => this.routes())
+            .catch((e: any) => Debug.xlog('error', e));
     }
     // implement middlewares
     private middleware(): Promise<any> {
@@ -56,10 +57,10 @@ class Server {
     }
     // implements routing
     private routes(): void {
-
         const router: express.Router = express.Router();
         for (const api of (Annotations.fetchApi() as any[])) {
             let apiInfo = Annotations.getApi(api.prototype.constructor);
+            Debug.xlog(c.bold.blue(apiInfo.name), '(', c.bold.gray(api.constructor.name), ')');
             for (const rule of Annotations.getActions(api)) {
                 let route: string[]|string = [];
                 if (apiInfo.manifiest === true) {
@@ -83,20 +84,21 @@ class Server {
                 let action: string = ' '.repeat(60);
                 let preAction = (api.name + '.' + rule.name).replace(/\s+/g, '');
                 action = preAction + action.substr(preAction.length);
-                console.log(method + ' ' + action + ' ' + route);
+                Debug.xlog(c.bold.green(method), c.bold.magenta(action), c.bold.gray(route));
                 (router as any)[ rule.method.toLowerCase() ](route, (i: any, o: any) => {
                     try {
                         const x: any = new (api as FunctionConstructor)(i, o);
                         x[rule.name].apply(x, []);
                     }
                     catch (e) {
-                        console.error(e);
                         o.status(500);
                         o.end();
                     }
                 });
             }
+            Debug.xlog(' ');
         }
+        Debug.xlog(c.bold.green(c.symbols.check, 'Listening to HTTP requests:'), '\n');
         this.express.use('/', router);
     }
 }

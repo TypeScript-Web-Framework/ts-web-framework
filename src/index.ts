@@ -3,7 +3,6 @@ import * as debug from 'debug';
 import App from './app';
 import { Manifiest } from './core/Manifiest';
 
-
 debug('ts-express:server');
 const port = Manifiest.get('http.defaultPort', process.env.PORT);
 App.set('port', port);

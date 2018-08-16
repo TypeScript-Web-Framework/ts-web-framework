@@ -3,12 +3,12 @@
 export type TypeHttpExpectedIn = 'query' | 'path' | 'body' | 'header' | 'cookie';
 export type TypeHttpExpectedType = StringConstructor | NumberConstructor | ArrayConstructor | BooleanConstructor | ObjectConstructor;
 export interface InterfaceHttpExpectedKey {
-    in? : TypeHttpExpectedIn;
-    type? : TypeHttpExpectedType;
+    in?: TypeHttpExpectedIn;
+    type?: TypeHttpExpectedType;
     // default: false
     required?: boolean;
     // default: null
-    validate?: (value:boolean|string|number|Array<boolean|number|string>) => boolean;
+    validate?: <T>(value: T|boolean|string|number|(boolean|number|string)[]) => boolean;
     // default: undefined
     default?: any;
     message?: string;
@@ -24,11 +24,13 @@ export class Annotations {
         API: string,
         ATTRIBUTE: string,
         EXPECTED: string
+        SCOPE: string
     } = {
         ANNOTATION : 'GLOBAL:ANNOTATION',
         API : 'CONTROLLER:API',
         ATTRIBUTE: 'CONTROLLER:HTTP:ATTRIBUTE',
-        EXPECTED: 'CONTROLLER:HTTP:EXPECT'
+        EXPECTED: 'CONTROLLER:HTTP:EXPECT',
+        SCOPE: 'CONTROLLER:HTTP:SCOPE'
     };
 
     //
@@ -109,6 +111,22 @@ export class Annotations {
         else existing[propertyName] = rules;
         Reflect.defineMetadata(Annotations.KEYS.EXPECTED, existing, target);
     }
+
+
+    public static setScope (name: any): void {
+        let existing: any[] = Annotations.getScope();
+        if (existing.indexOf(name) === -1) {
+            existing.push(name);
+            // noinspection JSPotentiallyInvalidConstructorUsage
+            Reflect.defineMetadata(Annotations.KEYS.SCOPE, existing, Annotations.constructor.prototype);
+        }
+    }
+    public static getScope (): string[] {
+        // noinspection JSPotentiallyInvalidConstructorUsage
+        return Reflect.getMetadata(Annotations.KEYS.SCOPE, Annotations.constructor.prototype) || [];
+    }
+
+
     // Get expected rules
     public static getExpected (target: FunctionConstructor, propertyName?: string): any | undefined {
         if (typeof propertyName === 'undefined') return (Reflect.getMetadata(Annotations.KEYS.EXPECTED, target) || {});

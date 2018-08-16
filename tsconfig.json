@@ -9,7 +9,7 @@
         "emitDecoratorMetadata": true,
         "jsx": "react",
         "noImplicitAny": true,
-        "declaration": true,
+        "declaration": false,
         "sourceMap": true,
         "lib": ["es2015", "es6", "es2017"],
         "pretty": true,
