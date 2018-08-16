@@ -1,8 +1,8 @@
 import {Controller} from "../core/Controller";
-import {Request, Response} from "express-serve-static-core";
+import {Request, Response} from "express";
 
-export class CorsController extends Controller {
-    public constructor (public request: Request, public response : Response) {
-        super(request, response);
+export abstract class CorsController extends Controller {
+    _before () {
+
     }
 }
