@@ -59,7 +59,7 @@
         "@types/express": "^4.0.33",
         "@types/helmet": "0.0.41",
         "@types/lodash": "^4.14.108",
-        "@types/mocha": "^5.2.0",
+        "@types/mocha": "^5.2.6",
         "@types/morgan": "^1.7.32",
         "@types/node": "^10.5.2",
         "@types/rx": "^4.1.1",
