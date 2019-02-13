@@ -38,7 +38,7 @@
     "dependencies": {
         "ansi-colors": "^3.0.0",
         "body-parser": "^1.15.2",
-        "cookie-parser": "^1.4.3",
+        "cookie-parser": "^1.4.4",
         "cookie-session": "^2.0.0-beta.3",
         "cors": "^2.8.4",
         "csurf": "^1.9.0",
