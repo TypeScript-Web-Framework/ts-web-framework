@@ -63,7 +63,7 @@
         "@types/morgan": "^1.7.32",
         "@types/node": "^11.9.0",
         "@types/rx": "^4.1.1",
-        "@types/ua-parser-js": "^0.7.32",
+        "@types/ua-parser-js": "^0.7.33",
         "chai": "^4.1.2",
         "clean-webpack-plugin": "^2.0.0",
         "copy-webpack-plugin": "^4.5.2",
