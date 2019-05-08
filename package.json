@@ -67,7 +67,7 @@
         "chai": "^4.1.2",
         "clean-webpack-plugin": "^2.0.0",
         "copy-webpack-plugin": "^4.5.2",
-        "glob": "^7.1.2",
+        "glob": "^7.1.4",
         "mocha": "^6.0.0",
         "supertest": "^4.0.0",
         "ts-loader": "^4.4.2",
