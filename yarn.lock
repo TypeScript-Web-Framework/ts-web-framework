@@ -65,9 +65,10 @@
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
 
-"@types/mocha@^5.2.0":
-  version "5.2.5"
-  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-5.2.5.tgz#8a4accfc403c124a0bafe8a9fc61a05ec1032073"
+"@types/mocha@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-7.0.0.tgz#ac65f97746464ec84ce15f4743cd61c449822ad4"
+  integrity sha512-6mh1VlA343Ax31blo37+KZ0DxDOA8b6cL963xPOOt7fMYtG07aJJ+0FRLvcDO4KrL45faOS104G7kwAjZc9l4w==
 
 "@types/morgan@^1.7.32":
   version "1.7.35"
