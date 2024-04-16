@@ -46,10 +46,10 @@
         "express": "^4.14.0",
         "express-session": "^1.15.6",
         "helmet": "^3.12.1",
-        "lodash": "^4.17.10",
+        "lodash": "^4.17.17",
         "morgan": "^1.7.0",
         "reflect-metadata": "^0.1.12",
-        "snyk": "^1.88.1"
+        "snyk": "^1.996.0"
     },
     "devDependencies": {
         "@types/body-parser": "^1.17.0",
